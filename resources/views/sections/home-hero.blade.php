@@ -102,12 +102,12 @@
                                 @if ($heading)
                                     @if ($index === 0)
                                         <h1
-                                            class="hero-heading font-medium text-[25px] md:text-[32px] lg:text-[50px] tracking-[-0.01em] max-w-161">
+                                            class="hero-heading font-medium text-[25px] md:text-[32px] lg:text-[50px] tracking-[0.027em] max-w-161">
                                             {!! $heading !!}
                                         </h1>
                                     @else
                                         <h2
-                                            class="hero-heading font-medium text-[25px] md:text-[32px] lg:text-[50px] tracking-[-0.01em] max-w-161">
+                                            class="hero-heading font-medium text-[25px] md:text-[32px] lg:text-[50px] tracking-[0.027em] max-w-161">
                                             {!! $heading !!}
                                         </h2>
                                     @endif

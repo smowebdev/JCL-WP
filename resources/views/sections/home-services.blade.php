@@ -6,7 +6,7 @@
 @if ($heading)
     <section class="home-services-sec bg-grey px-page-x py-section-y-l">
 
-        <h2 class="mb-xl max-w-[850px] text-h1 font-medium tracking-[0.03em] md:py-[15px] lg:py-0">
+        <h2 class="mb-xl max-w-[900px] text-h1 font-medium tracking-[0.027em] md:py-[15px] lg:py-0">
             {!! $heading !!}
         </h2>
 

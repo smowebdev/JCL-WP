@@ -12,7 +12,7 @@
 
         <div class="relative z-10">
             @if ($heading)
-                <h1 class="mb-xl text-h1 font-medium tracking-[-0.01em]">
+                <h1 class="mb-xl text-h1 font-medium  tracking-[0.027em]">
                     {!! $heading !!}
                 </h1>
             @endif

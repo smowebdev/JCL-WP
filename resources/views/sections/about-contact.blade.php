@@ -17,7 +17,7 @@
     <section class="about-contact-sec px-page-x py-section-y-s">
 
         @if ($heading)
-            <h2 class="text-h1 py-[15px] md:py-2.5 lg:py-0 font-medium tracking-[-0.01em] mb-section-y-s">
+            <h2 class="text-h1 py-[15px] md:py-2.5 lg:py-0 font-medium tracking-[0.027em] mb-section-y-s">
                 {!! $heading !!}
             </h2>
         @endif
