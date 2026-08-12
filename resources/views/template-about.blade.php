@@ -9,4 +9,5 @@
     @include('sections.about-services')
     @include('sections.about-award')
     @include('sections.about-vision')
+    @include('sections.about-contact')
 @endsection

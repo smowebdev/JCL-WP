@@ -18,6 +18,7 @@ class About extends Composer
         'sections.about-services',
         'sections.about-award',
         'sections.about-vision',
+        'sections.about-contact',
     ];
 
     /**
@@ -54,9 +55,9 @@ class About extends Composer
             'contact' => [
                 'heading' => get_field('contact_heading'),
                 'address' => get_field('contact_address'),
-                'telephone' => get_field('contact_telephone'),
+                'telephone' => get_field('contact_phone'),
                 'fax' => get_field('contact_fax'),
-                'inquiry_email' => get_field('contact_inquiry_email'),
+                'inquiry_email' => get_field('contact_email'),
                 'button' => get_field('contact_button'),
                 'map' => get_field('contact_map'),
             ],
