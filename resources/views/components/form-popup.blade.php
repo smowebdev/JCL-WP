@@ -16,7 +16,7 @@
 
             @foreach ($forms as $form)
                 @if (!empty($form['shortcode']))
-                    <div class="form-content hidden" data-form-content="{{ $form['type'] }}">
+                    <div class="form-content my-6 md:my-10 hidden" data-form-content="{{ $form['type'] }}">
                         {!! do_shortcode($form['shortcode']) !!}
                     </div>
                 @endif
