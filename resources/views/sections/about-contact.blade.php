@@ -40,7 +40,7 @@
                         @if ($address)
                             <div class="flex flex-col gap-[5px]">
                                 <span class="text-p1 leading-[normal]">
-                                    Address
+                                    {{ __('Address', 'sage') }}
                                 </span>
 
                                 <p class="text-title-l leading-[normal]">
@@ -52,7 +52,7 @@
                         @if ($telephone)
                             <div class="flex flex-col gap-[5px]">
                                 <span class="text-p1 leading-[normal]">
-                                    Telephone
+                                    {{ __('Telephone', 'sage') }}
                                 </span>
 
                                 <p class="text-title-l leading-[normal]">
@@ -66,7 +66,7 @@
                         @if ($fax)
                             <div class="flex flex-col gap-[5px]">
                                 <span class="text-p1 leading-[normal]">
-                                    Fax
+                                    {{ __('Fax', 'sage') }}
                                 </span>
 
                                 <p class="text-title-l leading-[normal]">
@@ -78,7 +78,7 @@
                         @if ($inquiryEmail)
                             <div class="flex flex-col gap-[5px]">
                                 <span class="text-p1 leading-[normal]">
-                                    Inquiry
+                                    {{ __('Inquiry', 'sage') }}
                                 </span>
 
                                 <p class="text-title-l leading-[normal]">

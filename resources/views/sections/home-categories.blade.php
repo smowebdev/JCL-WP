@@ -61,15 +61,12 @@
 
                         <div class="{{ $layout['image'] }} relative">
 
-                            {{-- Overlay --}}
                             <div
                                 class="absolute inset-0 bg-black/57 pointer-events-none transition-default opacity-0 group-hover:opacity-100">
                             </div>
 
-                            {{-- Image --}}
                             <img class="w-full h-full object-cover" src="{{ $imageUrl }}" alt="{{ $imageAlt }}">
 
-                            {{-- See More --}}
                             <div
                                 class="absolute text-[12px] leading-[normal] font-light text-white inline-flex items-center justify-center w-full gap-1.5 top-1/2 -translate-y-1/2 transition-default opacity-0 group-hover:opacity-100">
                                 <span>See More</span>
@@ -78,7 +75,6 @@
                                     src="{{ Vite::asset('resources/images/arrow-right-white.svg') }}" alt="">
                             </div>
 
-                            {{-- Category title --}}
                             <div
                                 class="{{ $layout['label'] }} inline-block text-title-l leading-[normal] py-2 px-5.5 border border-primary bg-white whitespace-nowrap">
                                 {{ $title }}
