@@ -69,7 +69,7 @@
 
                             <div
                                 class="absolute text-[12px] leading-[normal] font-light text-white inline-flex items-center justify-center w-full gap-1.5 top-1/2 -translate-y-1/2 transition-default opacity-0 group-hover:opacity-100">
-                                <span>See More</span>
+                                <span>{{ __('See More', 'sage') }}</span>
 
                                 <img class="animate-arrow-move"
                                     src="{{ Vite::asset('resources/images/arrow-right-white.svg') }}" alt="">

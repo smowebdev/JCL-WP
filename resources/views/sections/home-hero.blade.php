@@ -88,7 +88,7 @@
                                     @if ($description)
                                         <div
                                             class="text-[12px] lg:text-[18px] leading-[1.4] max-w-[143px] md:max-w-[230px]">
-                                            {{ $description }}
+                                            {!! !!!$description !!}
                                         </div>
                                     @endif
 
@@ -103,12 +103,12 @@
                                     @if ($index === 0)
                                         <h1
                                             class="hero-heading font-medium text-[25px] md:text-[32px] lg:text-[50px] tracking-[-0.01em] max-w-161">
-                                            {{ $heading }}
+                                            {!! $heading !!}
                                         </h1>
                                     @else
                                         <h2
                                             class="hero-heading font-medium text-[25px] md:text-[32px] lg:text-[50px] tracking-[-0.01em] max-w-161">
-                                            {{ $heading }}
+                                            {!! $heading !!}
                                         </h2>
                                     @endif
                                 @endif
