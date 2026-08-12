@@ -1,0 +1,178 @@
+body {
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    line-height: 1;
+    color: #57585A;
+    font-weight: 400;
+}
+
+a {
+    transition: all 0.3s ease-in-out;
+}
+
+.header-lang a:hover {
+    color: var(--color-primary);
+}
+
+.header-lang a.active {
+    color: var(--color-primary);
+}
+
+.header-site {
+    z-index: 999;
+}
+
+.header-menu a:hover {
+    color: var(--color-tertiary);
+    background-color: var(--color-grey);
+}
+
+.header-site .menu-mobile {
+    min-height: calc(100dvh - 48px);
+    background-color: var(--color-grey);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all .3s ease;
+}
+
+.header-site .menu-mobile.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.menu-toggle {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--color-primary);
+    transition: .3s ease;
+}
+
+.menu-toggle span:nth-child(1) {
+    top: 3px;
+}
+
+.menu-toggle span:nth-child(2) {
+    top: 11px;
+}
+
+.menu-toggle span:nth-child(3) {
+    top: 19px;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    top: 11px;
+    transform: rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    top: 11px;
+    transform: rotate(-45deg);
+}
+
+.client-logo-marquee {
+    animation: clientLogoMarquee 30s linear infinite;
+}
+
+
+.client-logo-marquee:hover {
+    animation-play-state: paused;
+}
+
+.popup-form {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+
+.popup-form__overlay {
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.popup-form__panel {
+    transform: translateX(100%);
+    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.popup-form__close span:first-child {
+    transform: rotate(45deg);
+}
+
+.popup-form__close span:last-child {
+    transform: rotate(-45deg);
+}
+
+
+.popup-form.is-open {
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.popup-form.is-open .popup-form__overlay {
+    opacity: 1;
+}
+
+.popup-form.is-open .popup-form__panel {
+    transform: translateX(0);
+}
+
+
+
+@keyframes clientLogoMarquee {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+
+
+@media(max-width:1023px) {
+    .client-logo-marquee {
+        animation: none;
+        transform: none;
+        width: 100%;
+    }
+
+    .client-logo-track {
+        width: 100%;
+    }
+
+    .client-logo-track-clone {
+        display: none;
+    }
+
+
+}
+
+
+@media(max-width:767px) {}
