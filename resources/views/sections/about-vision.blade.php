@@ -19,9 +19,9 @@
             @endif
 
             @if (!empty($vision['button']))
-                <a href="{{ $vision['button']['url'] ?? '#' }}" class="btn btn-primary cursor-pointer js-form-trigger">
-                    {{ $vision['button']['title'] ?? 'Booking' }}
-                </a>
+                <x-button href="{{ $vision['button']['url'] ?? '#' }}"
+                    target="{{ $vision['button']['target'] ?? '_self' }}"
+                    title="{{ $vision['button']['title'] ?? 'Booking' }}" class="cursor-pointer js-form-trigger" />
             @endif
 
         </div>
