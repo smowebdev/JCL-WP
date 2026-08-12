@@ -1,5 +1,6 @@
 import arrowUp from '../images/arrow-hero.svg';
 import arrowDown from '../images/arrow-hero-down.svg';
+import gsap from 'gsap';
 jQuery(document).ready(function ($) {
   const $menuToggle = $('.menu-toggle');
   const $mobileMenu = $('.menu-mobile');

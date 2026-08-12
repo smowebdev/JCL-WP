@@ -176,35 +176,4 @@ add_action('widgets_init', function () {
 
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script('jquery');
-    wp_enqueue_script(
-        'gsap',
-        'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js',
-        [],
-        '3.13.0',
-        true
-    );
-
-    wp_enqueue_script(
-        'gsap-scrolltrigger',
-        'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js',
-        ['gsap'],
-        '3.13.0',
-        true
-    );
-
-    wp_enqueue_script(
-        'gsap-scrollto',
-        'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollToPlugin.min.js',
-        ['gsap'],
-        '3.13.0',
-        true
-    );
-
-    wp_enqueue_script(
-        'gsap-cssrule',
-        'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/CSSRulePlugin.min.js',
-        ['gsap'],
-        '3.13.0',
-        true
-    );
 }, 20);

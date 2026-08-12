@@ -34,7 +34,6 @@
             </aside>
         @endif
 
-        @dump($forms)
         @include('sections.footer')
     </div>
     <x-form-popup :forms="$forms" />
