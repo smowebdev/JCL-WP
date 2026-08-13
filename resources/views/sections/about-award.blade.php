@@ -22,7 +22,7 @@
                     @endphp
 
                     @if ($year && !empty($items))
-                        <div class="grid grid-cols-1 gap-4 lg:grid-cols-[100px_1fr]">
+                        <div class="grid grid-cols-1 gap-s lg:grid-cols-[100px_1fr]">
 
                             <div>
                                 <span class="inline-block text-title-l leading-[normal] text-tertiary">
@@ -30,7 +30,7 @@
                                 </span>
                             </div>
 
-                            <div class="flex flex-col gap-5">
+                            <div class="flex flex-col gap-m">
 
                                 @foreach ($items as $item)
                                     @php

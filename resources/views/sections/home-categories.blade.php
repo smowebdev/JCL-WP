@@ -1,4 +1,4 @@
-<section class="project-cate-sec px-5 md:px-8.75 lg:px-80 py-section-y-l">
+<section class="project-cate-sec px-m md:px-8.75 lg:px-80 py-section-y-l">
 
     @if (!empty($categories['items']))
 
@@ -48,7 +48,7 @@
                             'item' => 'order-5 md:order-6',
                             'wrapper' => 'min-h-[270px] flex items-center justify-center',
                             'image' => 'w-[180px] h-[270px]',
-                            'label' => 'absolute z-1 -bottom-5 -right-11 lg:-bottom-5.5 lg:-right-11',
+                            'label' => 'absolute z-1 -bottom-m -right-11 lg:-bottom-5.5 lg:-right-11',
                         ],
                     ];
 
@@ -57,28 +57,24 @@
 
                 @if ($imageUrl)
                     <a href="{{ $link }}"
-                        class="cate-item group relative px-4 lg:px-0 {{ $layout['item'] }} {{ $layout['wrapper'] }}">
+                        class="cate-item group relative px-s lg:px-0 {{ $layout['item'] }} {{ $layout['wrapper'] }}">
 
                         <div class="{{ $layout['image'] }} relative">
 
-                            {{-- Overlay --}}
                             <div
                                 class="absolute inset-0 bg-black/57 pointer-events-none transition-default opacity-0 group-hover:opacity-100">
                             </div>
 
-                            {{-- Image --}}
                             <img class="w-full h-full object-cover" src="{{ $imageUrl }}" alt="{{ $imageAlt }}">
 
-                            {{-- See More --}}
                             <div
                                 class="absolute text-[12px] leading-[normal] font-light text-white inline-flex items-center justify-center w-full gap-1.5 top-1/2 -translate-y-1/2 transition-default opacity-0 group-hover:opacity-100">
-                                <span>See More</span>
+                                <span>{{ __('See More', 'sage') }}</span>
 
                                 <img class="animate-arrow-move"
                                     src="{{ Vite::asset('resources/images/arrow-right-white.svg') }}" alt="">
                             </div>
 
-                            {{-- Category title --}}
                             <div
                                 class="{{ $layout['label'] }} inline-block text-title-l leading-[normal] py-2 px-5.5 border border-primary bg-white whitespace-nowrap">
                                 {{ $title }}

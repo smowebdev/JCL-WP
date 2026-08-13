@@ -9,6 +9,5 @@
     @include('sections.about-services')
     @include('sections.about-award')
     @include('sections.about-vision')
-    @dump($forms)
-    <x-form-popup :forms="$forms" />
+    @include('sections.about-contact')
 @endsection
