@@ -290,6 +290,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     homeHeroInner.addEventListener('click', function (event) {
+      if (window.matchMedia('(max-width: 1023px)').matches) {
+        return;
+      }
+
       if (event.target.closest('a, button')) {
         return;
       }
@@ -301,7 +305,6 @@ document.addEventListener('DOMContentLoaded', function () {
       const currentIndex = getCurrentHeroIndex();
 
       const isFirstHero = currentIndex === 0;
-
       const isLastHero = currentIndex === heroItemElements.length - 1;
 
       if (isFirstHero) {
@@ -321,8 +324,36 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    homeHeroInner.addEventListener('mouseleave', function () {
-      this.style.cursor = '';
+    homeHeroInner.addEventListener('mousemove', function (event) {
+      if (window.matchMedia('(max-width: 1023px)').matches) {
+        this.style.cursor = '';
+        return;
+      }
+
+      const rect = homeHeroInner.getBoundingClientRect();
+
+      const mouseY = event.clientY - rect.top;
+
+      const currentIndex = getCurrentHeroIndex();
+
+      const isFirstHero = currentIndex === 0;
+      const isLastHero = currentIndex === heroItemElements.length - 1;
+
+      if (isFirstHero) {
+        homeHeroInner.style.cursor = `url("${arrowDown}") 32 26, auto`;
+        return;
+      }
+
+      if (isLastHero) {
+        homeHeroInner.style.cursor = `url("${arrowUp}") 32 26, auto`;
+        return;
+      }
+
+      if (mouseY < rect.height / 2) {
+        homeHeroInner.style.cursor = `url("${arrowUp}") 32 26, auto`;
+      } else {
+        homeHeroInner.style.cursor = `url("${arrowDown}") 32 26, auto`;
+      }
     });
 
     if (timelinePrev) {

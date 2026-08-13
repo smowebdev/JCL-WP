@@ -13,11 +13,11 @@
                     <img class="w-full h-full object-cover" src="{{ $image['url'] }}" alt="{{ $image['alt'] ?? '' }}">
                 @endif
             </div>
-            <div class="bg-secondary px-page-x py-80 md:py-100 flex flex-col items-start justify-center gap-xl">
+            <div class="bg-secondary px-page-x py-80 md:py-25 flex flex-col items-start justify-center gap-xl">
                 @if ($years || $year_label)
                     <div>
                         @if ($years)
-                            <div class=" text-[100px] leading-[0.8]">
+                            <div class="font-abel text-[100px] leading-[0.8]  tracking-[-0.01em]">
                                 <span class="js-counter" data-count="{{ $years }}">0</span>+
                             </div>
                         @endif
