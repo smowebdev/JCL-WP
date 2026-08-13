@@ -19,6 +19,7 @@ class Header extends Composer
     public function with(): array
     {
         return [
+            'languages' => \App\jcl_languages(),
             'logo' => get_field('site_logo', 'option'),
             'socials' => get_field('socials', 'option') ?: [],
         ];

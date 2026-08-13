@@ -1,0 +1,8 @@
+msgid "Primary Navigation"
+msgstr ""
+
+msgid "Sorry, but the page you are trying to view does not exist."
+msgstr ""
+
+msgid "Sorry, no results were found."
+msgstr ""
