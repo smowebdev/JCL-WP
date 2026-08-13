@@ -3,9 +3,15 @@ import arrowDown from '../images/arrow-hero-down.svg';
 import gsap from 'gsap';
 import L from 'leaflet';
 import { MaptilerLayer } from '@maptiler/leaflet-maptilersdk';
+import Alpine from 'alpinejs';
+window.Alpine = Alpine;
+Alpine.start();
 
 import 'leaflet/dist/leaflet.css';
 import '@maptiler/sdk/dist/maptiler-sdk.css';
+import './components/preloader';
+import './components/projects';
+
 jQuery(document).ready(function ($) {
   const $menuToggle = $('.menu-toggle');
   const $mobileMenu = $('.menu-mobile');
