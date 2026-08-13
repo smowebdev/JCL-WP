@@ -1,4 +1,4 @@
- <footer class="footer-site px-page-x border-t border-grey pt-[15px] pb-4 md:pt-5.5 md:pb-[23px]">
+ <footer class="footer-site px-page-x border-t border-grey pt-[15px] pb-s md:pt-5.5 md:pb-[23px]">
      <div class="flex flex-col md:flex-row flex-wrap justify-between items-center gap-2.5">
          <div class="flex-1">
              @if ($copyright)
@@ -9,7 +9,7 @@
              @endif
          </div>
          @if (!empty($socials))
-             <div class="flex gap-4">
+             <div class="flex gap-s">
                  @foreach ($socials as $social)
                      @php
                          $icon = $social['icon'] ?? [];

@@ -1,4 +1,4 @@
-<section class="project-cate-sec px-5 md:px-8.75 lg:px-80 py-section-y-l">
+<section class="project-cate-sec px-m md:px-8.75 lg:px-80 py-section-y-l">
 
     @if (!empty($categories['items']))
 
@@ -48,7 +48,7 @@
                             'item' => 'order-5 md:order-6',
                             'wrapper' => 'min-h-[270px] flex items-center justify-center',
                             'image' => 'w-[180px] h-[270px]',
-                            'label' => 'absolute z-1 -bottom-5 -right-11 lg:-bottom-5.5 lg:-right-11',
+                            'label' => 'absolute z-1 -bottom-m -right-11 lg:-bottom-5.5 lg:-right-11',
                         ],
                     ];
 
@@ -57,7 +57,7 @@
 
                 @if ($imageUrl)
                     <a href="{{ $link }}"
-                        class="cate-item group relative px-4 lg:px-0 {{ $layout['item'] }} {{ $layout['wrapper'] }}">
+                        class="cate-item group relative px-s lg:px-0 {{ $layout['item'] }} {{ $layout['wrapper'] }}">
 
                         <div class="{{ $layout['image'] }} relative">
 

@@ -5,7 +5,7 @@
 @endphp
 @if ($project_list)
     <section
-        class="project-logo-sec  px-5  md:px-[48px] lg:px-0 pt-[150px] md:pt-[188px] pb-[120px] md:pb-[150px] lg:pt-[250px] lg:pb-[200px]">
+        class="project-logo-sec  px-m  md:px-[48px] lg:px-0 pt-[150px] md:pt-[188px] pb-[120px] md:pb-[150px] lg:pt-[250px] lg:pb-[200px]">
         <div class="flex justify-center mb-xxl">
             @if ($count || $heading)
                 <div class="flex flex-col md:flex-row items-start md:items-end md:justify-center gap-2.5 ">

@@ -10,6 +10,7 @@ use App\View\Composers\About;
 use App\View\Composers\Footer;
 use App\View\Composers\Header;
 use App\View\Composers\Home;
+use App\View\Composers\People;
 use Illuminate\Support\Facades\Vite;
 
 add_filter('view/composer', function ($composers) {
@@ -17,6 +18,7 @@ add_filter('view/composer', function ($composers) {
     $composers[] = Footer::class;
     $composers[] = Home::class;
     $composers[] = About::class;
+    $composers[] = People::class;
 
     return $composers;
 });

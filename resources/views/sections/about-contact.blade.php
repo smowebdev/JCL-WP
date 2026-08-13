@@ -22,7 +22,7 @@
             </h2>
         @endif
 
-        <div class="grid grid-cols-1 lg:grid-cols-[1fr_440px] gap-5">
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_440px] gap-m">
 
             <div class="contact-map-wrapper h-[450px] w-full">
                 @if ($lat && $lng)
@@ -35,7 +35,7 @@
             <div>
                 <div class="max-w-[350px] h-full flex flex-col justify-between gap-section-y-s items-start">
 
-                    <div class="flex flex-col gap-5">
+                    <div class="flex flex-col gap-m">
 
                         @if ($address)
                             <div class="flex flex-col gap-[5px]">

@@ -8,7 +8,7 @@
             <h2 class="text-h1 tracking-[0.01em] font-medium mb-100">{!! $heading !!}
             </h2>
         @endif
-        <div class="about-services-list lg:px-22.5 flex flex-wrap justify-center gap-5 lg:gap-l">
+        <div class="about-services-list lg:px-22.5 flex flex-wrap justify-center gap-m lg:gap-l">
             @foreach ($services_list as $item)
                 @php
                     $icon = $item['icon'] ?? [];

@@ -1,7 +1,7 @@
 @if ($hero['items'])
     <section class="home-hero relative overflow-hidden text-white pb-[46px]">
         <div
-            class="timeline__nav absolute right-5 bottom-[66px] md:bottom-[76px] z-50 flex lg:hidden flex-col items-center gap-6">
+            class="timeline__nav absolute right-m bottom-[66px] md:bottom-[76px] z-50 flex lg:hidden flex-col items-center gap-6">
 
             <button type="button"
                 class="timeline__btn timeline__btn--prev flex items-center justify-center cursor-pointer"
@@ -74,12 +74,12 @@
                         </div>
 
 
-                        <div class="pl-5 pr-5 md:pr-0 md:pl-[217px] flex flex-col justify-between relative z-10 h-full">
+                        <div class="pl-m pr-m md:pr-0 md:pl-[217px] flex flex-col justify-between relative z-10 h-full">
 
                             <div class="relative">
 
                                 <div
-                                    class="hero-side__floating absolute top-6 left-auto md:left-0 right-0 md:right-auto flex flex-col md:flex-row items-start md:items-end gap-4 md:gap-8 will-change-transform">
+                                    class="hero-side__floating absolute top-6 left-auto md:left-0 right-0 md:right-auto flex flex-col md:flex-row items-start md:items-end gap-s md:gap-8 will-change-transform">
 
                                     <div class="font-abel text-[160px] leading-[0.75] tracking-[-0.03em]">
                                         {{ $year }}
@@ -134,7 +134,7 @@
 
         <div class="home-hero__scroll bg-white w-full absolute bottom-0 left-0 z-40">
 
-            <div class="hero-scroll-btn cursor-pointer px-5 py-4 flex items-center justify-center">
+            <div class="hero-scroll-btn cursor-pointer px-m py-s flex items-center justify-center">
 
                 <img class="w-auto h-3.5 object-contain" src="{{ Vite::asset('resources/images/arrow-down.svg') }}"
                     alt="">

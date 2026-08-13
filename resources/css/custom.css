@@ -10,6 +10,15 @@ a {
     transition: all 0.3s ease-in-out;
 }
 
+p {
+    margin-bottom: 1.4em;
+}
+
+p:last-child,
+p:last-of-type {
+    margin-bottom: 0;
+}
+
 .header-lang a:hover {
     color: var(--color-primary);
 }

@@ -1,6 +1,6 @@
 <header
-    class="header-site  sticky top-0 left-0 z-50 w-full border-b border-black/10 bg-white px-page-x pt-3 pb-[11px] md:pt-4 md:pb-[15px]">
-    <div class="flex items-center justify-between gap-4">
+    class="header-site  sticky top-0 left-0 z-50 w-full border-b border-black/10 bg-white px-page-x pt-3 pb-[11px] md:pt-s md:pb-[15px]">
+    <div class="flex items-center justify-between gap-s">
 
         <a href="{{ home_url('/') }}" class="block">
             @if ($logo)
@@ -15,7 +15,7 @@
                 {!! wp_nav_menu([
                     'theme_location' => 'primary_navigation',
                     'container' => false,
-                    'menu_class' => 'flex gap-5 lg:gap-l',
+                    'menu_class' => 'flex gap-m lg:gap-l',
                     'echo' => false,
                     'fallback_cb' => false,
                     'depth' => 2,
@@ -24,7 +24,7 @@
         </nav>
 
 
-        <div class="header-lang text-grey hidden md:flex text-[16px]  leading-4.75  gap-4">
+        <div class="header-lang text-grey hidden md:flex text-[16px]  leading-4.75  gap-s">
             <a href="#">简</a>
             <a href="#">繁</a>
             <a href="#" class="active">EN</a>
@@ -41,7 +41,7 @@
     </div>
 
 
-    <div class="menu-mobile px-5">
+    <div class="menu-mobile px-m">
 
         <div class="header-lang py-l flex justify-center text-primary text-[20px]  leading-6  gap-6">
             <a href="#">简</a>
