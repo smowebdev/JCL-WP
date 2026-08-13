@@ -88,7 +88,7 @@
                                     @if ($description)
                                         <div
                                             class="text-[12px] lg:text-[18px] leading-[1.4] max-w-[143px] md:max-w-[230px]">
-                                            {!! !!!$description !!}
+                                            {!! $description !!}
                                         </div>
                                     @endif
 
