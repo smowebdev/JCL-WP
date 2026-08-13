@@ -8,7 +8,8 @@
             <a
                 href="{{ $genre->url }}"
                 data-id="{{ $genre->term_id }}"
-                class="btn-toggle btn shrink-0 py-1.5 px-3 lg:py-2.5 lg:px-5 text-[14px] lg:text-title-l font-medium leading-[normal] btn-default"
+                class="btn-toggle btn shrink-0 py-1.5 px-3 lg:py-2.5 lg:px-5 text-[14px] lg:text-title-l font-medium leading-[normal] btn-default {{ $genre->is_active ? 'bg-tertiary text-white border-tertiary' : '' }}"
+                x-init="{{ $genre->is_active ? 'genres.push(' . $genre->term_id . ')' : '' }}"
                 x-on:click="updateTax({{ $genre->term_id }}, 'genres')"
             >
                 {!! $genre->name !!}
@@ -37,7 +38,9 @@
                                 <x-checkbox
                                     data-tab="tab{{ $service_key }}"
                                     :name="$service->name"
+                                    is_active="{{ $service->is_active }}"
                                     x-on:click="updateTax({{ $service->term_id }}, 'services')"
+                                    x-init="{!! $service->is_active ? 'services.push(' . $service->term_id . ')' : '' !!}"
                                 />
                             @endforeach
                         </div>
@@ -63,6 +66,7 @@
                                     data-tab="tab{{ $sector_key }}"
                                     :name="$sector->name"
                                     x-click="updateTax({{ $sector->term_id }}, 'sectors')"
+                                    x-init="{{ $sector->is_active ? 'sectors.push(' . $sector->term_id . ')' : '' }}"
                                 />
                             @endforeach
                         </div>

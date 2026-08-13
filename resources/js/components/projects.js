@@ -7,10 +7,13 @@ document.addEventListener('alpine:init', () => {
         projecs: '',
         timeout: null,
         loading: false,
+        filterInFirstLoad: false,
+        isFirstLoad: true,
         init() {
             this.$watch(
                 () => [this.genres, this.services, this.sectors],
                 ([newGenres, newServices, newSectors]) => {
+                    if (!this.filterInFirstLoad && this.isFirstLoad) return;
                     clearTimeout(this.timeout);
                     this.timeout = setTimeout(() => {
                         this.filterProjects();
@@ -21,6 +24,7 @@ document.addEventListener('alpine:init', () => {
         },
 
         updateTax(termId, type) {
+            this.isFirstLoad = false;
             const term = this[type];
             const termIdIndex = term.indexOf(termId);
             if (termIdIndex !== -1) {
@@ -28,9 +32,7 @@ document.addEventListener('alpine:init', () => {
             } else {
                 term.push(termId);
             }
-
             this[type] = term;
-
         },
         async filterProjects() {
             try {
@@ -53,7 +55,6 @@ document.addEventListener('alpine:init', () => {
                 }
 
                 const { success, data } = await resp.json();
-                console.log(this.$el, this.$el.querySelector('#projects-grid'));
                 this.$el.querySelector('#projects-grid').innerHTML = data.html;
                 this.loading = false;
 
