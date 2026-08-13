@@ -4,7 +4,7 @@
 ])
 <div
     {{ $attributes->merge() }}
-    class="group flex cursor-pointer items-start gap-2.5 {{ $is_active ? 'active' : '' }}"
+    class="group flex cursor-pointer items-start gap-2.5{{ $is_active ? ' active' : '' }}"
 >
     <div
         class="relative h-3 w-3 mt-[3px] border group-hover:border-none group-hover:!bg-grey shrink-0 group-[.active]:bg-tertiary group-[.active]:border-none transition-colors duration-300">

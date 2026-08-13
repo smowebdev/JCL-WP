@@ -31,8 +31,14 @@ class Projects extends Composer
             return [];
         }
 
-        array_map(function ($term) use ($taxonomy) {
+        $in_term_id = is_archive() ? get_queried_object_id() : '';
+
+        array_map(function ($term) use ($taxonomy, $in_term_id) {
             $term->url = esc_url(get_term_link($term->term_id, $taxonomy));
+            $term->is_active = false;
+            if ($in_term_id && (int)$in_term_id === $term->term_id) {
+                $term->is_active = true;
+            }
             return $term;
         }, $terms);
 
@@ -56,12 +62,23 @@ class Projects extends Composer
      */
     public function with()
     {
+        $projects_args = [
+            'post_type' => PostType::PROJECT->value,
+            'post_status' => 'publish',
+            'post_per_page' => -1
+        ];
+
+        if (is_archive()) {
+            $term = get_queried_object();
+            $projects_args['tax_query'][] = [
+                'taxonomy' => $term->taxonomy,
+                'field' => 'term_id',
+                'terms' => [$term->term_id]
+            ];
+        }
+
         return [
-            'projects' => new WP_Query([
-                'post_type' => PostType::PROJECT->value,
-                'post_status' => 'publish',
-                'post_per_page' => -1
-            ]),
+            'projects' => new WP_Query($projects_args),
             'genres' => $this->get_terms(ProjectTaxonomy::GENRE->value),
             'services' => $this->get_terms(ProjectTaxonomy::SERVICE->value),
             'sectors' => $this->get_terms(ProjectTaxonomy::SECTOR->value),
