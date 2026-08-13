@@ -10,7 +10,7 @@ if (!process.env.APP_URL) {
 }
 
 export default defineConfig({
-  base: '/app/themes/sage/public/build/',
+  base: '/wp-content/themes/jcl/public/build/',
 
   plugins: [
     tailwindcss(),
