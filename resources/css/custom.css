@@ -20,7 +20,7 @@ p:last-of-type {
 }
 
 .custom-banner {
-    cursor: url('../images/arrow-down-banner.svg') 16 16, pointer;
+    cursor: url('../images/arrow-down-banner-down.svg') 16 16, pointer;
 }
 
 .header-lang a:hover {

@@ -1,5 +1,5 @@
-import arrowUp from '../images/arrow-hero.svg';
-import arrowDown from '../images/arrow-hero-down.svg';
+import arrowUp from '../images/arrow-down-banner-up.svg';
+import arrowDown from '../images/arrow-down-banner-down.svg';
 import gsap from 'gsap';
 import L from 'leaflet';
 import { MaptilerLayer } from '@maptiler/leaflet-maptilersdk';
@@ -271,21 +271,21 @@ document.addEventListener('DOMContentLoaded', function () {
       const isLastHero = currentIndex === heroItemElements.length - 1;
 
       if (isFirstHero) {
-        homeHeroInner.style.cursor = `url("${arrowDown}") 12 12, auto`;
+        homeHeroInner.style.cursor = `url("${arrowDown}") 32 26, auto`;
 
         return;
       }
 
       if (isLastHero) {
-        homeHeroInner.style.cursor = `url("${arrowUp}") 12 12, auto`;
+        homeHeroInner.style.cursor = `url("${arrowUp}") 32 26, auto`;
 
         return;
       }
 
       if (mouseY < rect.height / 2) {
-        homeHeroInner.style.cursor = `url("${arrowUp}") 12 12, auto`;
+        homeHeroInner.style.cursor = `url("${arrowUp}") 32 26, auto`;
       } else {
-        homeHeroInner.style.cursor = `url("${arrowDown}") 12 12, auto`;
+        homeHeroInner.style.cursor = `url("${arrowDown}") 32 26, auto`;
       }
     });
 
