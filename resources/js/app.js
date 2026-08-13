@@ -178,6 +178,48 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
 
+    function getCurrentHeroIndex() {
+      const scrollY = homeHeroInner.scrollTop;
+
+      const viewportCenter = scrollY + homeHeroInner.clientHeight / 2;
+
+      let currentIndex = 0;
+
+      heroItemElements.forEach(function (hero, index) {
+        const heroTop = hero.offsetTop;
+        const heroBottom = heroTop + hero.offsetHeight;
+
+        if (viewportCenter >= heroTop && viewportCenter < heroBottom) {
+          currentIndex = index;
+        }
+      });
+
+      return currentIndex;
+    }
+
+    function updateTimelineNavigation() {
+      if (!timelinePrev || !timelineNext) {
+        return;
+      }
+
+      const currentIndex = getCurrentHeroIndex();
+      const lastIndex = heroItemElements.length - 1;
+
+      const hasPrevious = currentIndex > 0;
+      const hasNext = currentIndex < lastIndex;
+
+      timelinePrev.classList.toggle('hidden', !hasPrevious);
+
+      timelineNext.classList.toggle('hidden', !hasNext);
+
+      timelinePrev.setAttribute('aria-hidden', String(!hasPrevious));
+
+      timelineNext.setAttribute('aria-hidden', String(!hasNext));
+
+      timelinePrev.disabled = !hasPrevious;
+      timelineNext.disabled = !hasNext;
+    }
+
     function calculateTimeline() {
       const scrollY = homeHeroInner.scrollTop;
 
@@ -227,25 +269,6 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
 
-    function getCurrentHeroIndex() {
-      const scrollY = homeHeroInner.scrollTop;
-
-      const viewportCenter = scrollY + homeHeroInner.clientHeight / 2;
-
-      let currentIndex = 0;
-
-      heroItemElements.forEach(function (hero, index) {
-        const heroTop = hero.offsetTop;
-        const heroBottom = heroTop + hero.offsetHeight;
-
-        if (viewportCenter >= heroTop && viewportCenter < heroBottom) {
-          currentIndex = index;
-        }
-      });
-
-      return currentIndex;
-    }
-
     function scrollToHero(index) {
       if (index < 0 || index >= heroItemElements.length) {
         return;
@@ -257,9 +280,32 @@ document.addEventListener('DOMContentLoaded', function () {
         top: targetHero.offsetTop,
         behavior: 'smooth',
       });
+
+      if (timelinePrev && timelineNext) {
+        const lastIndex = heroItemElements.length - 1;
+
+        const hasPrevious = index > 0;
+        const hasNext = index < lastIndex;
+
+        timelinePrev.classList.toggle('hidden', !hasPrevious);
+
+        timelineNext.classList.toggle('hidden', !hasNext);
+
+        timelinePrev.setAttribute('aria-hidden', String(!hasPrevious));
+
+        timelineNext.setAttribute('aria-hidden', String(!hasNext));
+
+        timelinePrev.disabled = !hasPrevious;
+        timelineNext.disabled = !hasNext;
+      }
     }
 
-    homeHeroInner.addEventListener('mousemove', function (event) {
+    function updateDesktopCursor(event) {
+      if (window.matchMedia('(max-width: 1023px)').matches) {
+        homeHeroInner.style.cursor = '';
+        return;
+      }
+
       const rect = homeHeroInner.getBoundingClientRect();
 
       const mouseY = event.clientY - rect.top;
@@ -287,9 +333,14 @@ document.addEventListener('DOMContentLoaded', function () {
       } else {
         homeHeroInner.style.cursor = `url("${arrowDown}") 32 26, auto`;
       }
+    }
+
+    homeHeroInner.addEventListener('mousemove', function (event) {
+      updateDesktopCursor(event);
     });
 
     homeHeroInner.addEventListener('click', function (event) {
+      // Disable click navigation on tablet/mobile
       if (window.matchMedia('(max-width: 1023px)').matches) {
         return;
       }
@@ -305,68 +356,54 @@ document.addEventListener('DOMContentLoaded', function () {
       const currentIndex = getCurrentHeroIndex();
 
       const isFirstHero = currentIndex === 0;
+
       const isLastHero = currentIndex === heroItemElements.length - 1;
 
       if (isFirstHero) {
         scrollToHero(currentIndex + 1);
+
         return;
       }
 
       if (isLastHero) {
         scrollToHero(currentIndex - 1);
+
         return;
       }
-
       if (mouseY < rect.height / 2) {
         scrollToHero(currentIndex - 1);
       } else {
         scrollToHero(currentIndex + 1);
-      }
-    });
-
-    homeHeroInner.addEventListener('mousemove', function (event) {
-      if (window.matchMedia('(max-width: 1023px)').matches) {
-        this.style.cursor = '';
-        return;
-      }
-
-      const rect = homeHeroInner.getBoundingClientRect();
-
-      const mouseY = event.clientY - rect.top;
-
-      const currentIndex = getCurrentHeroIndex();
-
-      const isFirstHero = currentIndex === 0;
-      const isLastHero = currentIndex === heroItemElements.length - 1;
-
-      if (isFirstHero) {
-        homeHeroInner.style.cursor = `url("${arrowDown}") 32 26, auto`;
-        return;
-      }
-
-      if (isLastHero) {
-        homeHeroInner.style.cursor = `url("${arrowUp}") 32 26, auto`;
-        return;
-      }
-
-      if (mouseY < rect.height / 2) {
-        homeHeroInner.style.cursor = `url("${arrowUp}") 32 26, auto`;
-      } else {
-        homeHeroInner.style.cursor = `url("${arrowDown}") 32 26, auto`;
       }
     });
 
     if (timelinePrev) {
-      timelinePrev.addEventListener('click', function () {
+      timelinePrev.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
         const currentIndex = getCurrentHeroIndex();
+
+        if (currentIndex <= 0) {
+          return;
+        }
 
         scrollToHero(currentIndex - 1);
       });
     }
 
     if (timelineNext) {
-      timelineNext.addEventListener('click', function () {
+      timelineNext.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
         const currentIndex = getCurrentHeroIndex();
+
+        const lastIndex = heroItemElements.length - 1;
+
+        if (currentIndex >= lastIndex) {
+          return;
+        }
 
         scrollToHero(currentIndex + 1);
       });
@@ -383,6 +420,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       requestAnimationFrame(function () {
         calculateTimeline();
+        updateTimelineNavigation();
 
         timelineTicking = false;
       });
@@ -438,10 +476,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
       timelineResizeTimer = setTimeout(function () {
         calculateTimeline();
+        updateTimelineNavigation();
       }, 100);
     });
 
     calculateTimeline();
+    updateTimelineNavigation();
   }
 
   // =========================================================
