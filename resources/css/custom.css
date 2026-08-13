@@ -19,6 +19,10 @@ p:last-of-type {
     margin-bottom: 0;
 }
 
+.custom-banner {
+    cursor: url('../images/arrow-down-banner.svg') 16 16, pointer;
+}
+
 .header-lang a:hover {
     color: var(--color-primary);
 }

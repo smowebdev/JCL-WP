@@ -14,6 +14,25 @@ import './components/projects';
 
 document.addEventListener('DOMContentLoaded', function () {
   // =========================================================
+  // Banner Click To Scroll Next Section - Start
+  // =========================================================
+  document.querySelectorAll('.custom-banner').forEach((banner) => {
+    banner.addEventListener('click', () => {
+      const nextSection = banner.nextElementSibling;
+
+      if (!nextSection) return;
+
+      nextSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    });
+  });
+  // =========================================================
+  // Banner Click To Scroll Next Section - End
+  //
+
+  // =========================================================
   // Toggle Menu - Start
   // =========================================================
 

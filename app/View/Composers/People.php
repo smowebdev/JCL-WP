@@ -15,6 +15,7 @@ class People extends Composer
     protected static $views = [
         'sections.people-hero',
         'sections.people-teams',
+        'sections.people-join',
     ];
 
     /**
@@ -33,10 +34,13 @@ class People extends Composer
             'teams' => [
                 'heading' => get_field('team_heading'),
                 'items' => $this->getTeams(),
-
+            ],
+            'join' => [
+                'heading' => get_field('join_heading'),
+                'desc' => get_field('join_description'),
+                'button' => get_field('join_button'),
+                'background' => get_field('join_background'),
             ]
-
-
 
 
         ];
