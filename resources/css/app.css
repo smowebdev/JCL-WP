@@ -16,7 +16,7 @@
     --color-grey-dark: #58595B;
     --color-grey-text: #57585a;
     --color-grey-light: #808285;
-    
+
     /* Fonts */
     --font-inter: "Inter", sans-serif;
     --font-abel: "Abel", sans-serif;
@@ -37,6 +37,7 @@
     --spacing-l: 30px;
     --spacing-m: 20px;
     --spacing-s: 16px;
+    --spacing-screen-without-header: var(--spacing-without-header);
 
     /* Typography */
     --text-h1: 50px;
@@ -45,6 +46,7 @@
     --text-p1: 16px;
 
     --animate-arrow-move: arrow-move 1.2s ease-in-out infinite;
+
 
     @keyframes arrow-move {
 
@@ -57,6 +59,10 @@
             transform: translateX(8px);
         }
     }
+}
+
+:root {
+    --spacing-without-header: calc(100vh - 64px);
 }
 
 @media (max-width: 1024px) {

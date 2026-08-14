@@ -15,6 +15,14 @@ add_filter('excerpt_more', function () {
     return sprintf(' &hellip; <a href="%s">%s</a>', get_permalink(), __('Continued', 'sage'));
 });
 
+/**
+ * Disable adminbar in client when add ?dev after url
+ */
+add_filter('show_admin_bar', function ($return) {
+    if (isset($_GET['dev'])) $return = false;
+    return $return;
+}, 10, 1);
+
 
 add_action('wp_head', function () {
 ?>
