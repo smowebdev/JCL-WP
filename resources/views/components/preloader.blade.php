@@ -1,6 +1,6 @@
     <div
         id="preloader"
-        class="preloader fixed inset-0 z-1000 bg-grey overflow-hidden"
+        class="preloader fixed inset-0 z-1000 bg-grey overflow-hidden {{ $is_frontpage ? '' : 'hidden' }}"
     >
         <div class="w-full h-full relative">
             <div class="absolute left-1/2 top-1/2 -translate-1/2 z-10">

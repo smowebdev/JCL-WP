@@ -4,35 +4,15 @@ import Cookies from "js-cookie";
 
 function preloaderPlay() {
     let preloader = document.getElementById('preloader');
+    if (!document.body.classList.contains('home')) {
+        return;
+    }
 
     if (!preloader) return;
 
     let jclPreloaderLoaded = Cookies.get('jclPreloaderLoaded') || '';
 
     const prlLogoWrapper = document.getElementById('prlLogoWrapper');
-
-    if (Number(jclPreloaderLoaded) === 1) {
-        gsap.timeline()
-            .to(
-                prlLogoWrapper,
-                {
-                    opacity: 0,
-                    duration: 0.5,
-                },
-            )
-            .to(
-                preloader,
-                {
-                    opacity: 0,
-                    duration: 0.5,
-                    onComplete: function () {
-                        preloader.style.display = 'none';
-                    }
-                },
-            );
-        return;
-    };
-
     const svgBoxContainer = document.getElementById('svgBoxContainer');
     const prlLogoText = document.getElementById('prlLogoText');
     const prlLogoContainer = document.getElementById('prlLogoContainer');
@@ -164,7 +144,6 @@ function preloaderPlay() {
                 duration: 1,
                 onComplete: function () {
                     preloader.style.display = 'none';
-                    Cookies.set('jclPreloaderLoaded', 1, {});
                 }
             },
         );

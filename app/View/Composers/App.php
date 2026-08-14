@@ -25,6 +25,7 @@ class App extends Composer
     public function with()
     {
         return [
+            'is_frontpage' => is_front_page(),
             'forms' => [
                 [
                     'type' => 'booking',
