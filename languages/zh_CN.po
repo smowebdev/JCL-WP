@@ -34,3 +34,30 @@ msgstr "询问"
 
 msgid "See More"
 msgstr "查看更多"
+
+msgid "Location"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Year"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "Surface Area"
+msgstr ""
+
+msgid "Theme"
+msgstr ""
+
+msgid "Service"
+msgstr ""
+
+msgid "Programmes"
+msgstr ""
+
+msgid "In partnership with"
+msgstr ""
