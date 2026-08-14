@@ -19,10 +19,6 @@ p:last-of-type {
     margin-bottom: 0;
 }
 
-.custom-banner {
-    cursor: url('../images/arrow-down-banner-down.svg') 16 16, pointer;
-}
-
 
 
 .header-lang a.active {

@@ -2,12 +2,11 @@
     $heading = $awards['heading'] ?? '';
     $awardList = $awards['list'] ?? [];
 @endphp
-
 @if ($heading || !empty($awardList))
     <section class="about-award-sec bg-grey px-page-x pt-section-y-s pb-section-y-l">
 
         @if ($heading)
-            <h2 class="mb-100 text-h1 font-medium tracking-[0.01em]">
+            <h2 data-aos="fade-in" class="mb-100 text-h1 font-medium tracking-[0.01em]">
                 {!! $heading !!}
             </h2>
         @endif
@@ -22,7 +21,7 @@
                     @endphp
 
                     @if ($year && !empty($items))
-                        <div class="grid grid-cols-1 gap-s lg:grid-cols-[100px_1fr]">
+                        <div data-aos="fade-in" class="grid grid-cols-1 gap-s lg:grid-cols-[100px_1fr]">
 
                             <div>
                                 <span class="inline-block text-title-l leading-[normal] text-tertiary">
@@ -36,6 +35,7 @@
                                     @php
                                         $title = $item['title'] ?? '';
                                         $project = $item['project'] ?? '';
+                                        $link = $item['link'] ?? '';
                                     @endphp
 
                                     @if ($title || $project)
@@ -47,7 +47,12 @@
                                                 </p>
                                             @endif
 
-                                            @if ($project)
+                                            @if ($project && !empty($link))
+                                                <a href="{{ $link }}"
+                                                    class="inline-block text-[16px] leading-[19px] hover:text-tertiary hover:bg-grey">
+                                                    {!! $project !!}
+                                                </a>
+                                            @else
                                                 <span class="inline-block text-[16px] leading-[19px]">
                                                     {!! $project !!}
                                                 </span>

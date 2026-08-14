@@ -15,19 +15,20 @@
             <div class="relative z-1 flex-1 flex flex-col items-start justify-between gap-l">
 
                 @if ($visionHeading)
-                    <h2 class="text-h1 font-medium tracking-[0.01em]">
+                    <h2 data-aos="fade-in" class="text-h1 font-medium tracking-[0.01em]">
                         {!! $visionHeading !!}
                     </h2>
                 @endif
 
                 @if ($visionDesc)
-                    <div class="text-title-l leading-5.5 md:leading-6 lg:leading-[27px] max-w-[375px]">
+                    <div data-aos="fade-in" class="text-title-l leading-5.5 md:leading-6 lg:leading-[27px] max-w-[375px]">
                         {!! $visionDesc !!}
                     </div>
                 @endif
 
                 @if (!empty($visionButton))
-                    <x-button href="{{ $visionButton['url'] ?? '#' }}" target="{{ $visionButton['target'] ?? '_self' }}"
+                    <x-button data-aos="fade-in" href="{{ $visionButton['url'] ?? '#' }}"
+                        target="{{ $visionButton['target'] ?? '_self' }}"
                         title="{{ $visionButton['title'] ?? 'Booking' }}" class="cursor-pointer js-form-trigger" />
                 @endif
 

@@ -4,6 +4,8 @@ import gsap from 'gsap';
 import L from 'leaflet';
 import { MaptilerLayer } from '@maptiler/leaflet-maptilersdk';
 import Alpine from 'alpinejs';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 window.Alpine = Alpine;
 Alpine.start();
 
@@ -11,27 +13,12 @@ import 'leaflet/dist/leaflet.css';
 import '@maptiler/sdk/dist/maptiler-sdk.css';
 import './components/preloader';
 import './components/projects';
-
+AOS.init({
+  once: true,
+  duration: 1200,
+  easing: 'ease-out',
+});
 document.addEventListener('DOMContentLoaded', function () {
-  // =========================================================
-  // Banner Click To Scroll Next Section - Start
-  // =========================================================
-  document.querySelectorAll('.custom-banner').forEach((banner) => {
-    banner.addEventListener('click', () => {
-      const nextSection = banner.nextElementSibling;
-
-      if (!nextSection) return;
-
-      nextSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    });
-  });
-  // =========================================================
-  // Banner Click To Scroll Next Section - End
-  //
-
   // =========================================================
   // Toggle Menu - Start
   // =========================================================
@@ -340,7 +327,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     homeHeroInner.addEventListener('click', function (event) {
-      // Disable click navigation on tablet/mobile
       if (window.matchMedia('(max-width: 1023px)').matches) {
         return;
       }

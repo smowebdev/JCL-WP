@@ -2,7 +2,7 @@
 
     @if (!empty($categories['items']))
 
-        <div
+        <div data-aos="fade-in"
             class="project-cate-list max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 lg:gap-x-l gap-y-14 md:gap-y-12 md:p-xxl">
 
             @foreach ($categories['items'] as $index => $category)

@@ -5,10 +5,10 @@
 @if (!empty($services_list))
     <section class="about-services-sec px-page-x pt-section-y-s pb-section-y-l bg-secondary">
         @if ($heading)
-            <h2 class="text-h1 tracking-[0.01em] font-medium mb-100">{!! $heading !!}
+            <h2 data-aos="fade-in" class="text-h1 tracking-[0.01em] font-medium mb-100">{!! $heading !!}
             </h2>
         @endif
-        <div class="about-services-list lg:px-22.5 flex flex-wrap justify-center gap-m lg:gap-l">
+        <div data-aos="fade-in" class="about-services-list lg:px-22.5 flex flex-wrap justify-center gap-m lg:gap-l">
             @foreach ($services_list as $item)
                 @php
                     $icon = $item['icon'] ?? [];

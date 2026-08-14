@@ -4,7 +4,7 @@
     $project_list = $project_logo['items'] ?? [];
 @endphp
 @if ($project_list)
-    <section
+    <section data-aos="fade-in"
         class="project-logo-sec  px-m  md:px-[48px] lg:px-0 pt-[150px] md:pt-[188px] pb-[120px] md:pb-[150px] lg:pt-[250px] lg:pb-[200px]">
         <div class="flex justify-center mb-xxl">
             @if ($count || $heading)
