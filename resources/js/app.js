@@ -1,9 +1,11 @@
-import arrowUp from '../images/arrow-hero.svg';
-import arrowDown from '../images/arrow-hero-down.svg';
+import arrowUp from '../images/arrow-down-banner-up.svg';
+import arrowDown from '../images/arrow-down-banner-down.svg';
 import gsap from 'gsap';
 import L from 'leaflet';
 import { MaptilerLayer } from '@maptiler/leaflet-maptilersdk';
 import Alpine from 'alpinejs';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 window.Alpine = Alpine;
 Alpine.start();
 
@@ -11,7 +13,11 @@ import 'leaflet/dist/leaflet.css';
 import '@maptiler/sdk/dist/maptiler-sdk.css';
 import './components/preloader';
 import './components/projects';
-
+AOS.init({
+  once: true,
+  duration: 1200,
+  easing: 'ease-out',
+});
 document.addEventListener('DOMContentLoaded', function () {
   // =========================================================
   // Toggle Menu - Start
@@ -159,6 +165,48 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
 
+    function getCurrentHeroIndex() {
+      const scrollY = homeHeroInner.scrollTop;
+
+      const viewportCenter = scrollY + homeHeroInner.clientHeight / 2;
+
+      let currentIndex = 0;
+
+      heroItemElements.forEach(function (hero, index) {
+        const heroTop = hero.offsetTop;
+        const heroBottom = heroTop + hero.offsetHeight;
+
+        if (viewportCenter >= heroTop && viewportCenter < heroBottom) {
+          currentIndex = index;
+        }
+      });
+
+      return currentIndex;
+    }
+
+    function updateTimelineNavigation() {
+      if (!timelinePrev || !timelineNext) {
+        return;
+      }
+
+      const currentIndex = getCurrentHeroIndex();
+      const lastIndex = heroItemElements.length - 1;
+
+      const hasPrevious = currentIndex > 0;
+      const hasNext = currentIndex < lastIndex;
+
+      timelinePrev.classList.toggle('hidden', !hasPrevious);
+
+      timelineNext.classList.toggle('hidden', !hasNext);
+
+      timelinePrev.setAttribute('aria-hidden', String(!hasPrevious));
+
+      timelineNext.setAttribute('aria-hidden', String(!hasNext));
+
+      timelinePrev.disabled = !hasPrevious;
+      timelineNext.disabled = !hasNext;
+    }
+
     function calculateTimeline() {
       const scrollY = homeHeroInner.scrollTop;
 
@@ -208,25 +256,6 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
 
-    function getCurrentHeroIndex() {
-      const scrollY = homeHeroInner.scrollTop;
-
-      const viewportCenter = scrollY + homeHeroInner.clientHeight / 2;
-
-      let currentIndex = 0;
-
-      heroItemElements.forEach(function (hero, index) {
-        const heroTop = hero.offsetTop;
-        const heroBottom = heroTop + hero.offsetHeight;
-
-        if (viewportCenter >= heroTop && viewportCenter < heroBottom) {
-          currentIndex = index;
-        }
-      });
-
-      return currentIndex;
-    }
-
     function scrollToHero(index) {
       if (index < 0 || index >= heroItemElements.length) {
         return;
@@ -238,9 +267,32 @@ document.addEventListener('DOMContentLoaded', function () {
         top: targetHero.offsetTop,
         behavior: 'smooth',
       });
+
+      if (timelinePrev && timelineNext) {
+        const lastIndex = heroItemElements.length - 1;
+
+        const hasPrevious = index > 0;
+        const hasNext = index < lastIndex;
+
+        timelinePrev.classList.toggle('hidden', !hasPrevious);
+
+        timelineNext.classList.toggle('hidden', !hasNext);
+
+        timelinePrev.setAttribute('aria-hidden', String(!hasPrevious));
+
+        timelineNext.setAttribute('aria-hidden', String(!hasNext));
+
+        timelinePrev.disabled = !hasPrevious;
+        timelineNext.disabled = !hasNext;
+      }
     }
 
-    homeHeroInner.addEventListener('mousemove', function (event) {
+    function updateDesktopCursor(event) {
+      if (window.matchMedia('(max-width: 1023px)').matches) {
+        homeHeroInner.style.cursor = '';
+        return;
+      }
+
       const rect = homeHeroInner.getBoundingClientRect();
 
       const mouseY = event.clientY - rect.top;
@@ -252,25 +304,33 @@ document.addEventListener('DOMContentLoaded', function () {
       const isLastHero = currentIndex === heroItemElements.length - 1;
 
       if (isFirstHero) {
-        homeHeroInner.style.cursor = `url("${arrowDown}") 12 12, auto`;
+        homeHeroInner.style.cursor = `url("${arrowDown}") 32 26, auto`;
 
         return;
       }
 
       if (isLastHero) {
-        homeHeroInner.style.cursor = `url("${arrowUp}") 12 12, auto`;
+        homeHeroInner.style.cursor = `url("${arrowUp}") 32 26, auto`;
 
         return;
       }
 
       if (mouseY < rect.height / 2) {
-        homeHeroInner.style.cursor = `url("${arrowUp}") 12 12, auto`;
+        homeHeroInner.style.cursor = `url("${arrowUp}") 32 26, auto`;
       } else {
-        homeHeroInner.style.cursor = `url("${arrowDown}") 12 12, auto`;
+        homeHeroInner.style.cursor = `url("${arrowDown}") 32 26, auto`;
       }
+    }
+
+    homeHeroInner.addEventListener('mousemove', function (event) {
+      updateDesktopCursor(event);
     });
 
     homeHeroInner.addEventListener('click', function (event) {
+      if (window.matchMedia('(max-width: 1023px)').matches) {
+        return;
+      }
+
       if (event.target.closest('a, button')) {
         return;
       }
@@ -287,14 +347,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (isFirstHero) {
         scrollToHero(currentIndex + 1);
+
         return;
       }
 
       if (isLastHero) {
         scrollToHero(currentIndex - 1);
+
         return;
       }
-
       if (mouseY < rect.height / 2) {
         scrollToHero(currentIndex - 1);
       } else {
@@ -302,21 +363,33 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    homeHeroInner.addEventListener('mouseleave', function () {
-      this.style.cursor = '';
-    });
-
     if (timelinePrev) {
-      timelinePrev.addEventListener('click', function () {
+      timelinePrev.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
         const currentIndex = getCurrentHeroIndex();
+
+        if (currentIndex <= 0) {
+          return;
+        }
 
         scrollToHero(currentIndex - 1);
       });
     }
 
     if (timelineNext) {
-      timelineNext.addEventListener('click', function () {
+      timelineNext.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
         const currentIndex = getCurrentHeroIndex();
+
+        const lastIndex = heroItemElements.length - 1;
+
+        if (currentIndex >= lastIndex) {
+          return;
+        }
 
         scrollToHero(currentIndex + 1);
       });
@@ -333,6 +406,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       requestAnimationFrame(function () {
         calculateTimeline();
+        updateTimelineNavigation();
 
         timelineTicking = false;
       });
@@ -388,10 +462,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
       timelineResizeTimer = setTimeout(function () {
         calculateTimeline();
+        updateTimelineNavigation();
       }, 100);
     });
 
     calculateTimeline();
+    updateTimelineNavigation();
   }
 
   // =========================================================

@@ -19,12 +19,15 @@ p:last-of-type {
     margin-bottom: 0;
 }
 
-.header-lang a:hover {
-    color: var(--color-primary);
-}
+
 
 .header-lang a.active {
     color: var(--color-primary);
+}
+
+.header-lang a:hover {
+    color: var(--color-tertiary);
+    background-color: var(--color-grey);
 }
 
 .header-site {
@@ -187,8 +190,8 @@ p:last-of-type {
     border-radius: 0 !important;
 }
 
-.forminator-ui .forminator-button-submit:hover {
-    background: var(--color-grey) !important;
+body .forminator-ui.forminator-design--default .forminator-button-submit:hover {
+    background-color: var(--color-grey) !important;
     color: var(--color-tertiary) !important;
     border-color: var(--color-grey) !important;
 }

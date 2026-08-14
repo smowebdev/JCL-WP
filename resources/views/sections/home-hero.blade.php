@@ -18,10 +18,7 @@
         </div>
 
         <div
-            class="relative home-hero-inner overflow-y-auto
-                [scrollbar-width:none]
-                [-ms-overflow-style:none]
-                [&::-webkit-scrollbar]:hidden
+            class="relative home-hero-inner overflow-hidden
                 h-[calc(100dvh-94px)]
                 md:h-[calc(100dvh-104px)]
                 lg:h-[calc(100dvh-110px)]">
@@ -88,7 +85,7 @@
                                     @if ($description)
                                         <div
                                             class="text-[12px] lg:text-[18px] leading-[1.4] max-w-[143px] md:max-w-[230px]">
-                                            {!! !!!$description !!}
+                                            {!! $description !!}
                                         </div>
                                     @endif
 

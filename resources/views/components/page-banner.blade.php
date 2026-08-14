@@ -6,7 +6,7 @@
     @endphp
     @if ($heading)
         <section
-            class="custom-banner about-banner relative flex min-h-[calc(100dvh-48px)] items-center justify-center overflow-hidden p-page-x text-white md:min-h-[622px] lg:min-h-[calc(100dvh-64px)]"
+            class="custom-banner about-banner relative flex min-h-[calc(100dvh-48px)] items-center  overflow-hidden p-page-x text-white md:min-h-[622px] lg:min-h-[calc(100dvh-64px)]"
             @if (!empty($background['url'])) style="background: url('{{ $background['url'] }}') no-repeat center / cover;" @endif>
             <div class="banner-overlay pointer-events-none absolute inset-0 z-0 bg-black/45"></div>
 

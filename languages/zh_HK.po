@@ -19,3 +19,18 @@ msgstr "很抱歉，您嘗試瀏覽的頁面不存在。"
 
 msgid "Sorry, no results were found."
 msgstr "很抱歉，沒有找到任何結果。"
+
+msgid "Address"
+msgstr "地址"
+
+msgid "Telephone"
+msgstr "電話"
+
+msgid "Fax"
+msgstr "傳真"
+
+msgid "Inquiry"
+msgstr "詢問"
+
+msgid "See More"
+msgstr "看更多"

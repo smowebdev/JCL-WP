@@ -4,13 +4,13 @@
     $project_list = $project_logo['items'] ?? [];
 @endphp
 @if ($project_list)
-    <section
+    <section data-aos="fade-in"
         class="project-logo-sec  px-m  md:px-[48px] lg:px-0 pt-[150px] md:pt-[188px] pb-[120px] md:pb-[150px] lg:pt-[250px] lg:pb-[200px]">
         <div class="flex justify-center mb-xxl">
             @if ($count || $heading)
                 <div class="flex flex-col md:flex-row items-start md:items-end md:justify-center gap-2.5 ">
                     @if ($count)
-                        <div class=" min-w-[211px] text-[100px] leading-[0.8]">
+                        <div class=" min-w-[211px] font-abel tracking-[-0.01em] text-[100px] leading-[0.8]">
                             <span class="js-counter" data-count="{{ $count }}">0</span>+
                         </div>
                     @endif
