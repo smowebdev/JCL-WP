@@ -13,6 +13,8 @@ import 'leaflet/dist/leaflet.css';
 import '@maptiler/sdk/dist/maptiler-sdk.css';
 import './components/preloader';
 import './components/projects';
+import './components/lightbox';
+
 AOS.init({
   once: true,
   duration: 1200,
