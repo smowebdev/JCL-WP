@@ -138,4 +138,4 @@
 
     </div>
 </header>
-<x-preloader></x-preloader>
+@include('partials.preloader')

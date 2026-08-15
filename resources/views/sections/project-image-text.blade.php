@@ -26,7 +26,7 @@
         <div class="{{ $wrapper_class[$layout] }}">
             <div class="{{ $image_div_classes[$layout] }}">
                 @if (is_array($image) && !empty($image['url']))
-                    <div class="aspect-4/5 sm:aspect-5/3">
+                    <div class="aspect-4/5 md:aspect-5/3">
                         <img
                             src="{{ $image['url'] }}"
                             class="w-full h-full object-cover"

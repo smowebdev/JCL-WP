@@ -76,6 +76,7 @@
 
         --spacing-xl: 30px;
         --spacing-l: 20px;
+        --spacing-without-header: calc(100vh - 58px);
 
         --text-h1: 40px;
         --text-title-l: 20px;
@@ -90,6 +91,7 @@
         --spacing-section-y-l: 80px;
 
         --spacing-heading-height: 48px;
+        --spacing-without-header: calc(100vh - 48px);
 
         --text-h1: 35px;
         --text-title-l: 18px;
