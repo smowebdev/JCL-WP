@@ -15,7 +15,7 @@
 
         $wrapper_classes = [
             'left' =>
-                'custom-banner about-banner relative flex min-h-[calc(100dvh-48px)] items-center overflow-hidden p-page-x text-white md:min-h-[622px] lg:min-h-[calc(100dvh-64px)]',
+                'custom-banner about-banner relative flex min-h-[calc(100svh-48px)] items-center overflow-hidden p-page-x text-white md:min-h-[622px] lg:min-h-[calc(100svh-64px)]',
             'center' =>
                 'custom-banner about-banner text-white flex items-center justify-center p-page-x relative overflow-hidden h-screen-without-header lg:max-h-screen-without-header',
         ];
