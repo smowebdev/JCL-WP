@@ -196,6 +196,23 @@ body .forminator-ui.forminator-design--default .forminator-button-submit:hover {
     border-color: var(--color-grey) !important;
 }
 
+@keyframes marquee {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+
+@media (min-width: 1025px) {
+    .animate-track {
+        animation: marquee 30s linear infinite;
+    }
+}
+
 @media(max-width:1023px) {
     .client-logo-marquee {
         animation: none;
@@ -215,4 +232,14 @@ body .forminator-ui.forminator-design--default .forminator-button-submit:hover {
 }
 
 
-@media(max-width:767px) {}
+
+@media (max-width: 767px) {
+    .glightbox-container .ginner-container {
+        align-items: center;
+    }
+
+    .glightbox-clean .gnext,
+    .glightbox-clean .gprev {
+        top: 47% !important;
+    }
+}

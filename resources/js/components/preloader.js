@@ -1,6 +1,5 @@
 // Use this code in sage
 import { gsap } from "gsap";
-import Cookies from "js-cookie";
 
 function preloaderPlay() {
     let preloader = document.getElementById('preloader');
@@ -9,8 +8,6 @@ function preloaderPlay() {
     }
 
     if (!preloader) return;
-
-    let jclPreloaderLoaded = Cookies.get('jclPreloaderLoaded') || '';
 
     const prlLogoWrapper = document.getElementById('prlLogoWrapper');
     const svgBoxContainer = document.getElementById('svgBoxContainer');
@@ -35,14 +32,15 @@ function preloaderPlay() {
             prlLogoText,
             {
                 clipPath: `inset(0px 100% 0px 0px)`,
-                duration: 1,
+                duration: 0.8,
+                delay: 1
             }
         )
         .to(
             prlLogoContainer,
             {
                 x: `${prlLogoWrapperRect.width / 2 - prlLogoContainerRect.width / 2}px`,
-                duration: 1.5,
+                duration: 1,
             }
         )
         .to(
@@ -65,7 +63,7 @@ function preloaderPlay() {
         .to(
             svgBoxBorder,
             {
-                duration: 1.5,
+                duration: 0.8,
                 width: svgBoxBorderSize,
                 height: svgBoxBorderSize,
                 borderWidth: 2
@@ -74,7 +72,6 @@ function preloaderPlay() {
         .to(
             svgBoxSecondText,
             {
-                delay: 0.3,
                 opacity: 1,
             },
             '<'
@@ -89,7 +86,7 @@ function preloaderPlay() {
         .to(
             svgBoxContainer,
             {
-                duration: 1.5,
+                duration: 1,
                 width: window.innerWidth + 10,
                 height: window.innerHeight + 10
             },
@@ -107,7 +104,7 @@ function preloaderPlay() {
             {
                 duration: 1,
                 width: window.innerWidth,
-                height: window.innerHeight,
+                height: window.innerWidth,
                 onComplete: function () {
                     svgBoxBorder.style.borderColor = 'rgb(0 0 0 / 0%)';
                 }
@@ -118,14 +115,14 @@ function preloaderPlay() {
             {
                 delay: 0.5,
                 opacity: 0,
-                duration: 1
+                duration: 0.5,
             }
         )
         .to(
             svgBoxContainer,
             {
                 opacity: 0,
-                duration: 1
+                duration: 0.5,
             },
             '<'
         )
@@ -133,7 +130,7 @@ function preloaderPlay() {
             svgRectange,
             {
                 opacity: 0,
-                duration: 1
+                duration: 0.5,
             },
             '<'
         )
@@ -141,7 +138,7 @@ function preloaderPlay() {
             preloader,
             {
                 opacity: 0,
-                duration: 1,
+                duration: 0.5,
                 onComplete: function () {
                     preloader.style.display = 'none';
                 }
