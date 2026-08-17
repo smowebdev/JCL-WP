@@ -15,7 +15,7 @@
 
         $wrapper_classes = [
             'left' =>
-                'custom-banner about-banner relative flex min-h-[calc(100dvh-48px)] items-center overflow-hidden p-page-x text-white md:min-h-[622px] lg:min-h-[calc(100dvh-64px)]',
+                'custom-banner about-banner relative flex min-h-[calc(100svh-48px)] items-center overflow-hidden p-page-x text-white md:min-h-[622px] lg:min-h-[calc(100svh-64px)]',
             'center' =>
                 'custom-banner about-banner text-white flex items-center justify-center p-page-x relative overflow-hidden h-screen-without-header md:h-[622px] lg:max-h-screen-without-header',
         ];
@@ -32,44 +32,33 @@
 
     @endphp
     @if ($heading)
-        <section
-            class="{{ $wrapper_classes[$layout_type] }}"
-            @if ($banner_type !== 'video' && !empty($background['url'])) style="background: url('{{ $background['url'] }}') no-repeat center / cover;" @endif
-        >
+        <section class="{{ $wrapper_classes[$layout_type] }}"
+            @if ($banner_type !== 'video' && !empty($background['url'])) style="background: url('{{ $background['url'] }}') no-repeat center / cover;" @endif>
             @if ($banner_type === 'video' && !empty($video))
             @endif
             <div class="absolute inset-0 z-0">
-                <video
-                    class="w-full h-full object-cover"
-                    src="{{ $video }}"
-                    muted
-                    playsinline
-                    autoplay
-                    loop
-                ></video>
+                <video class="w-full h-full object-cover" src="{{ $video }}" muted playsinline autoplay
+                    loop></video>
             </div>
             <div class="{{ $overlay_classes[$layout_type] }}"></div>
 
             <div class="relative z-20">
                 @if ($heading)
-                    <h1 class="{{ $title_classes[$layout_type] }}">
+                    <h1 data-aos="fade-in" class="{{ $title_classes[$layout_type] }}">
                         {!! $heading !!}
                     </h1>
                 @endif
 
                 @if ($desc)
-                    <div class="{{ $desc_classes[$layout_type] }}">
+                    <div data-aos="fade-in" class="{{ $desc_classes[$layout_type] }}">
                         {!! $desc !!}
                     </div>
                 @endif
             </div>
             @if (is_array($award_image) && !empty($award_image['url']))
-                <img
-                    src="{{ $award_image['url'] }}"
+                <img src="{{ $award_image['url'] }}"
                     class="absolute top-0 right-5 lg:right-[50px] lg:w-[145px] lg:h-[145px] w-[100px] h-[100px] object-cover z-40"
-                    alt="{{ $award_image['alt'] }}"
-                    loading="lazy"
-                >
+                    alt="{{ $award_image['alt'] }}" loading="lazy">
             @endif
         </section>
     @endif

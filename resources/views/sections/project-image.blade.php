@@ -5,6 +5,7 @@
 @if (is_array($image) && !empty($image))
     <section class="py-section-y-l ">
         <img
+            data-aos="fade-in"
             src="{{ $image['url'] }}"
             class="object-cover h-[622px] md:h-[622px] lg:h-screen-without-header w-full"
             alt="{{ $image['alt'] }}"

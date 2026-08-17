@@ -6,7 +6,7 @@
     <section class="py-section-y-s px-page-x bg-secondary">
 
         @if ($heading)
-            <h2 class="text-h1  font-medium tracking-[0.027em]">
+            <h2 data-aos="fade-in" class="text-h1  font-medium tracking-[0.027em]">
                 {!! $heading !!}
             </h2>
         @endif
@@ -14,7 +14,7 @@
         <div class="py-100 flex flex-wrap gap-y-xxl gap-x-s justify-center">
 
             @foreach ($items as $team)
-                <div
+                <div data-aos="fade-in"
                     class="flex flex-col  gap-s
                     w-[calc((100%-var(--spacing-s))/2)]
                     md:w-[calc((100%-3*var(--spacing-s))/4)]

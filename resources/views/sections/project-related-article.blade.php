@@ -12,7 +12,7 @@
 @endphp
 @if ($is_show)
     <section class="pb-section-y-l px-page-x">
-        <div class="grid grid-cols-1 lg:grid-cols-5 gap-xl">
+        <div data-aos="fade-in" class="grid grid-cols-1 lg:grid-cols-5 gap-xl">
             <div
                 class="flex flex-col justify-between lg:justify-start items-start gap-[30px] lg:gap-[82px] lg:col-span-2">
                 <h2 class="text-h1 tracking-[0.027em] leading-[1]">{!! __('Related <br>Article', 'sage') !!}</h2>
