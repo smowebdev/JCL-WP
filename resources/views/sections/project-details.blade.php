@@ -18,12 +18,12 @@
     <section class="py-section-y-l">
         @if ($introduce)
             <div class="px-page-x">
-                <div
+                <div data-aos="fade-in"
                     class="text-title-l text-center leading-[1.23] tracking-[0.01em] lg:tracking-[0.02em] lg:max-w-250 lg:mx-auto">
                     {!! $introduce !!}</div>
             </div>
         @endif
-        <div class="px-page-x pt-80">
+        <div data-aos="fade-in" class="px-page-x pt-80">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-xl gap-y-10 lg:max-w-250 lg:mx-auto">
                 @if ($location)
                     <div class="col-span-1 flex flex-col gap-1 items-center">

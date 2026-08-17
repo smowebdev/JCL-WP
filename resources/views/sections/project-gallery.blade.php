@@ -5,6 +5,7 @@
 @if (is_array($gallery) && !empty($gallery))
     <section class="py-section-y-l px-page-x">
         <div
+        data-aos="fade-in"
             id="drag-scroll"
             class="grid grid-cols-1 gap-4 select-none sm:grid-cols-2 lg:flex lg:flex-nowrap lg:overflow-x-auto [&::-webkit-scrollbar]:hidden cursor-grab lg:-mr-page-x"
         >

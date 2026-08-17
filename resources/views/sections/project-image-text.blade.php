@@ -23,7 +23,7 @@
 @endphp
 @if ($is_show)
     <section>
-        <div class="{{ $wrapper_class[$layout] }}">
+        <div data-aos="fade-in" class="{{ $wrapper_class[$layout] }}">
             <div class="{{ $image_div_classes[$layout] }}">
                 @if (is_array($image) && !empty($image['url']))
                     <div class="aspect-4/5 md:aspect-5/3">

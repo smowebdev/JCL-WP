@@ -3,7 +3,7 @@
     class="pb-section-y-l"
     :class="loading ? 'opacity-50 pointer-events-none' : ''"
 >
-    <div class="py-section-y-s px-page-x flex gap-2 lg:gap-s justify-center flex-wrap group">
+    <div data-aos="fade-in" class="py-section-y-s px-page-x flex gap-2 lg:gap-s justify-center flex-wrap group">
         @foreach ($genres as $genre)
             <a
                 href="{{ $genre->url }}"
@@ -18,6 +18,7 @@
     </div>
     <div class="border-t-2 border-primary/10 md:hidden"></div>
     <div
+    data-aos="fade-in"
         class="grid grid-cols-1 md:grid-cols-[77fr_250fr] lg:grid-cols-[8fr_25fr] gap-9 md:gap-5 px-page-x pt-5 md:pt-0">
         <div class=" flex flex-col gap-2 md:gap-12 ">
             @if (!empty($services))

@@ -14,11 +14,11 @@
              <div class="absolute inset-0 bg-black/45"></div>
              <div class="py-section-y-s px-page-x absolute inset-0 z-10">
                  @if ($heading)
-                     <h2 class="text-h1 text-grey tracking-[0.027em] ">{!! $heading !!}</h2>
+                     <h2 data-aos="fade-in" class="text-h1 text-grey tracking-[0.027em] ">{!! $heading !!}</h2>
                  @endif
              </div>
          </div>
-         <div class="pt-section-y-s pb-section-y-l px-page-x bg-grey">
+         <div data-aos="fade-in" class="pt-section-y-s pb-section-y-l px-page-x bg-grey">
              <div class="  flex gap-[50px] flex-col  items-start">
                  @if ($desc)
                      <div class="text-title-l leading-[22px] md:leading-[24px] lg:leading-[27px] ">
