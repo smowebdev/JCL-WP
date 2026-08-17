@@ -65,7 +65,7 @@
                                 <x-checkbox
                                     data-tab="tab{{ $sector_key }}"
                                     :name="$sector->name"
-                                    x-click="updateTax({{ $sector->term_id }}, 'sectors')"
+                                    x-on:click="updateTax({{ $sector->term_id }}, 'sectors')"
                                     x-init="{{ $sector->is_active ? 'sectors.push(' . $sector->term_id . ')' : '' }}"
                                 />
                             @endforeach
