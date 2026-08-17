@@ -18,12 +18,13 @@
     </div>
     <div class="border-t-2 border-primary/10 md:hidden"></div>
     <div
-        class="grid grid-cols-1 md:grid-cols-[77fr_250fr] lg:grid-cols-[8fr_25fr] gap-9 md:gap-5 px-page-x pt-5 md:pt-0">
-        <div class=" flex flex-col gap-2 md:gap-12 ">
+        class="grid grid-cols-1 md:grid-cols-[77fr_250fr] lg:grid-cols-[8fr_25fr] gap-[20px] md:gap-5 px-page-x pt-5 md:pt-0">
+        <div class=" flex flex-col gap-2.5 md:gap-12 ">
             @if (!empty($services))
                 <div
                     x-data="{ opened: false }"
-                    class="flex flex-col gap-3 md:gap-5 sector-item"
+                    :class="opened ? 'gap-3' : ''"
+                    class="flex flex-col md:gap-5 sector-item"
                 >
                     <div
                         x-on:click="opened=!opened"
@@ -65,7 +66,8 @@
             @if (!empty($sectors))
                 <div
                     x-data="{ opened: false }"
-                    class="flex flex-col gap-3 md:gap-5 sector-item"
+                    :class="opened ? 'gap-3' : ''"
+                    class="flex flex-col md:gap-5 sector-item"
                 >
                     <div
                         x-on:click="opened=!opened"
