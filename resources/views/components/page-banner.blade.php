@@ -5,6 +5,8 @@
         $background = $hero['background'] ?? [];
         $award_image = $hero['award_image'] ?? [];
         $layout_type = $hero['layout_type'] ?? 'left' ?: 'left';
+        $banner_type = $hero['banner_type'] ?? 'image' ?: 'image';
+        $video = $hero['video'] ?? '' ?: '';
 
         $title_classes = [
             'left' => 'mb-xl text-h1 font-medium tracking-[0.027em]',
@@ -22,15 +24,33 @@
             'left' => 'text-title-l leading-[22px] md:leading-[normal]',
             'center' => 'mt-xl text-title-l leading-[22px] md:leading-[normal]',
         ];
+
+        $overlay_classes = [
+            'left' => 'banner-overlay pointer-events-none absolute inset-0 z-10 bg-black/45',
+            'center' => 'banner-overlay pointer-events-none absolute inset-0 z-10 bg-black/20',
+        ];
+
     @endphp
     @if ($heading)
         <section
             class="{{ $wrapper_classes[$layout_type] }}"
-            @if (!empty($background['url'])) style="background: url('{{ $background['url'] }}') no-repeat center / cover;" @endif
+            @if ($banner_type !== 'video' && !empty($background['url'])) style="background: url('{{ $background['url'] }}') no-repeat center / cover;" @endif
         >
-            <div class="banner-overlay pointer-events-none absolute inset-0 z-0 bg-black/45"></div>
+            @if ($banner_type === 'video' && !empty($video))
+            @endif
+            <div class="absolute inset-0 z-0">
+                <video
+                    class="w-full h-full object-cover"
+                    src="{{ $video }}"
+                    muted
+                    playsinline
+                    autoplay
+                    loop
+                ></video>
+            </div>
+            <div class="{{ $overlay_classes[$layout_type] }}"></div>
 
-            <div class="relative z-10">
+            <div class="relative z-20">
                 @if ($heading)
                     <h1 class="{{ $title_classes[$layout_type] }}">
                         {!! $heading !!}

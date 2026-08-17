@@ -36,28 +36,34 @@ msgid "See More"
 msgstr "看更多"
 
 msgid "Location"
-msgstr ""
+msgstr "地點"
 
 msgid "Status"
-msgstr ""
+msgstr "狀態"
 
 msgid "Year"
-msgstr ""
+msgstr "年份"
 
 msgid "Client"
-msgstr ""
+msgstr "客戶"
 
 msgid "Surface Area"
-msgstr ""
+msgstr "表面積"
 
 msgid "Theme"
-msgstr ""
+msgstr "主題"
 
 msgid "Service"
-msgstr ""
+msgstr "服務"
 
 msgid "Programmes"
-msgstr ""
+msgstr "節目"
 
 msgid "In partnership with"
+msgstr ""
+
+msgid "Read more"
+msgstr ""
+
+msgid "Related <br>Article"
 msgstr ""
