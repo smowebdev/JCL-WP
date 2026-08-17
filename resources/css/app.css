@@ -38,14 +38,18 @@
     --spacing-m: 20px;
     --spacing-s: 16px;
     --spacing-screen-without-header: var(--spacing-without-header);
+    --spacing-default: calc(var(--spacing) * 8);
 
     /* Typography */
     --text-h1: 50px;
     --text-title-l: 22px;
+    --text-title-sm: 20px;
     --text-title-m: 18px;
     --text-p1: 16px;
 
     --animate-arrow-move: arrow-move 1.2s ease-in-out infinite;
+
+
 
 
     @keyframes arrow-move {
@@ -62,7 +66,7 @@
 }
 
 :root {
-    --spacing-without-header: calc(100vh - 64px);
+    --spacing-without-header: calc(100svh - 64px);
 }
 
 @media (max-width: 1024px) {
@@ -76,7 +80,7 @@
 
         --spacing-xl: 30px;
         --spacing-l: 20px;
-        --spacing-without-header: calc(100vh - 58px);
+        --spacing-without-header: calc(100svh - 58px);
 
         --text-h1: 40px;
         --text-title-l: 20px;
@@ -91,7 +95,7 @@
         --spacing-section-y-l: 80px;
 
         --spacing-heading-height: 48px;
-        --spacing-without-header: calc(100vh - 48px);
+        --spacing-without-header: calc(100svh - 48px);
 
         --text-h1: 35px;
         --text-title-l: 18px;

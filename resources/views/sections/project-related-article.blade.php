@@ -18,7 +18,8 @@
                 <h2 class="text-h1 tracking-[0.027em] leading-[1]">{!! __('Related <br>Article', 'sage') !!}</h2>
                 <div class="flex flex-col gap-4">
                     @if ($title)
-                        <h3 class="text-p1 leading-[normal] font-medium">{!! $title !!}</h3>
+                        <h3 class="text-title-m md:text-title-sm lg:text-title-l leading-[normal] font-medium">
+                            {!! $title !!}</h3>
                     @endif
                     @if ($description)
                         <div class="text-[18px] tracking-[-0.02em] leading-[1.2] font-light">

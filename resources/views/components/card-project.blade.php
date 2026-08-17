@@ -10,7 +10,7 @@
     <div class="group relative overflow-hidden">
         <a href="{{ $permalink }}">
             <img
-                class="min-[1441px]:!h-[12.5vw] h-[188.44px] md:h-[147px] lg:h-[180px] w-full object-cover"
+                class="aspect-video w-full object-cover"
                 src="{{ $thumbnail_url }}"
                 alt="{{ $title }}"
                 loading="lazy"
