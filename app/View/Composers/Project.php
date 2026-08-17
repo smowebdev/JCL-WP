@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Roots\Acorn\View\Composer;
 use WP_Query;
 
-class Projects extends Composer
+class Project extends Composer
 {
 
     protected int $project_id;
@@ -41,7 +41,9 @@ class Projects extends Composer
 
         // Banner Image
         $hero = [
-            'background' => get_field('single_page_banner', $this->project_id) ?? [],
+            'banner_type' => get_field('banner_type') ?? 'image' ?: 'image',
+            'video' => get_field('banner_video', $this->project_id) ?? '',
+            'background' => get_field('banner_image', $this->project_id) ?? [],
             'thumbnail' => esc_url(get_the_post_thumbnail_url($this->project_id, 'full')),
             'award_image' => get_field('award_image', $this->project_id) ?? [],
             'heading' => wp_kses_post(get_the_title()),

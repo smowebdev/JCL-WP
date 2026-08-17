@@ -33,7 +33,7 @@ class Projects extends Composer
 
         $in_term_id = is_archive() ? get_queried_object_id() : '';
 
-        array_map(function ($term) use ($taxonomy, $in_term_id) {
+        $terms = array_map(function ($term) use ($taxonomy, $in_term_id) {
             $term->url = esc_url(get_term_link($term->term_id, $taxonomy));
             $term->is_active = false;
             if ($in_term_id && (int)$in_term_id === $term->term_id) {
@@ -46,16 +46,6 @@ class Projects extends Composer
     }
 
     /**
-     * @param array $args WP_Query args array
-     * @return WP_Query $projects
-     */
-    public function get_projects($args)
-    {
-        $projects = new WP_Query($args);
-        return $projects;
-    }
-
-    /**
      * Data to be passed to view.
      *
      * @return array
@@ -65,7 +55,7 @@ class Projects extends Composer
         $projects_args = [
             'post_type' => PostType::PROJECT->value,
             'post_status' => 'publish',
-            'post_per_page' => -1
+            'posts_per_page' => -1
         ];
 
         if (is_archive()) {
