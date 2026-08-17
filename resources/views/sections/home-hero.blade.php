@@ -19,9 +19,9 @@
 
         <div
             class="relative home-hero-inner overflow-hidden
-                h-[calc(100dvh-94px)]
-                md:h-[calc(100dvh-104px)]
-                lg:h-[calc(100dvh-110px)]">
+                h-[calc(100svh-94px)]
+                md:h-[calc(100svh-104px)]
+                lg:h-[calc(100svh-110px)]">
 
             <div class="relative hero-list z-20">
 
@@ -51,9 +51,9 @@
 
                     <div
                         class="hero-item relative overflow-hidden
-                            h-[calc(100dvh-94px)]
-                            md:h-[calc(100dvh-104px)]
-                            lg:h-[calc(100dvh-110px)]">
+                            h-[calc(100svh-94px)]
+                            md:h-[calc(100svh-104px)]
+                            lg:h-[calc(100svh-110px)]">
 
                         @if ($background)
                             <div class="hero-bg absolute inset-0 z-1">
