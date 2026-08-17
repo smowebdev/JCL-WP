@@ -66,7 +66,7 @@
             @if (is_array($award_image) && !empty($award_image['url']))
                 <img
                     src="{{ $award_image['url'] }}"
-                    class="absolute top-0 right-5 lg:right-[50px] lg:w-[145px] lg:h-[145px] w-[100px] h-[100px] object-cover z-1"
+                    class="absolute top-0 right-5 lg:right-[50px] lg:w-[145px] lg:h-[145px] w-[100px] h-[100px] object-cover z-40"
                     alt="{{ $award_image['alt'] }}"
                     loading="lazy"
                 >

@@ -23,6 +23,7 @@
     "vite": "^8.0.0"
   },
   "dependencies": {
+    "@alpinejs/collapse": "^3.16.1",
     "@maptiler/leaflet-maptilersdk": "^4.1.0",
     "@maptiler/sdk": "^4.1.0",
     "alpinejs": "^3.16.1",

@@ -1,9 +1,10 @@
 @props([
     'is_active' => false,
     'name' => '',
+    'attrs' => $attrs,
 ])
 <div
-    {{ $attributes->merge() }}
+    {{ $attributes->merge($attrs) }}
     class="group flex cursor-pointer items-start gap-2.5{{ $is_active ? ' active' : '' }}"
 >
     <div
@@ -16,7 +17,7 @@
         ></span>
     </div>
     <p
-        class="text-[14px] transition-colors leading-[normal] duration-300 group-[.active]:text-tertiary group-hover:!text-primary">
+        class="font-medium text-[14px] transition-colors leading-[normal] duration-300 group-[.active]:text-tertiary group-hover:!text-primary">
         {!! $name !!}
     </p>
 </div>

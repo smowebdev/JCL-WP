@@ -4,9 +4,11 @@ import gsap from 'gsap';
 import L from 'leaflet';
 import { MaptilerLayer } from '@maptiler/leaflet-maptilersdk';
 import Alpine from 'alpinejs';
+import collapse from '@alpinejs/collapse'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 window.Alpine = Alpine;
+Alpine.plugin(collapse);
 Alpine.start();
 
 import 'leaflet/dist/leaflet.css';
