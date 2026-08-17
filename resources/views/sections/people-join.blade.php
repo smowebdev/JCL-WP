@@ -18,10 +18,10 @@
                  @endif
              </div>
          </div>
-         <div class="py-section-y-s px-page-x bg-grey">
-             <div class="  pb-100 flex gap-[50px] flex-col  items-start">
+         <div class="pt-section-y-s pb-section-y-l px-page-x bg-grey">
+             <div class="  flex gap-[50px] flex-col  items-start">
                  @if ($desc)
-                     <div class="text-title-l leading-[normal]">
+                     <div class="text-title-l leading-[22px] md:leading-[24px] lg:leading-[27px] ">
                          {!! $desc !!}
                      </div>
                  @endif
@@ -29,7 +29,7 @@
                  @if (!empty($button['url']))
                      <x-button tag="a" href="{{ $button['url'] }}" target="{{ $button['target'] ?? '_self' }}"
                          title="{{ $button['title'] ?? 'Inquiry' }}" variant="default"
-                         class="cursor-pointer js-form-trigger hover:border-tertiary hover:bg-tertiary hover:text-grey" />
+                         class="cursor-pointer js-form-trigger " />
                  @endif
              </div>
          </div>
