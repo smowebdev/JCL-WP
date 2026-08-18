@@ -241,4 +241,12 @@ body .forminator-ui.forminator-design--default .forminator-button-submit:hover {
     .glightbox-clean .gprev {
         top: 47% !important;
     }
+
+    .glightbox-clean .gprev {
+        left: 10px !important;
+    }
+
+    .glightbox-clean .gnext {
+        right: 10px !important;
+    }
 }

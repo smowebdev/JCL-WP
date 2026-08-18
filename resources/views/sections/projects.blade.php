@@ -24,11 +24,11 @@
         data-aos="fade-in"
         class="grid grid-cols-1 md:grid-cols-[77fr_250fr] lg:grid-cols-[8fr_25fr] gap-[20px] md:gap-5 px-page-x pt-5 md:pt-0"
     >
-        <div class=" flex flex-col gap-8 md:gap-12">
+        <div class="flex flex-col gap-2 md:gap-12">
             @if (!empty($services))
                 <div
                     x-data="{ opened: false }"
-                    :class="opened ? 'gap-3' : ''"
+                    :class="opened ? 'gap-3 mb-6 lg:mb-0' : ''"
                     class="flex flex-col md:gap-5 sector-item"
                 >
                     <div
