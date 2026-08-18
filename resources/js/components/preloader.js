@@ -1,5 +1,6 @@
 // Use this code in sage
 import { gsap } from "gsap";
+import Cookies from "js-cookie";
 
 function preloaderPlay() {
     let preloader = document.getElementById('preloader');
@@ -8,6 +9,13 @@ function preloaderPlay() {
     }
 
     if (!preloader) return;
+
+    let jclPreloaderLoaded = Cookies.get('jclPreloaderLoaded') || '';
+
+    if (Number(jclPreloaderLoaded) === 1) {
+        preloader.style.display = 'none';
+        return;
+    };
 
     const prlLogoWrapper = document.getElementById('prlLogoWrapper');
     const svgBoxContainer = document.getElementById('svgBoxContainer');
@@ -23,7 +31,7 @@ function preloaderPlay() {
     let svgBorder = document.getElementById('svgBorder');
     let svgBoxVerticalLine = document.getElementById('svgBoxVerticalLine');
     let svgBoxHorizontalLine = document.getElementById('svgBoxHorizontalLine');
-    let svgBoxBorderSize = 300;
+    let svgBoxBorderSize = 301;
 
     const tl = gsap.timeline();
 
@@ -51,22 +59,11 @@ function preloaderPlay() {
             }
         )
         .to(
-            svgBoxFirstText,
-            {
-                opacity: 1,
-                duration: 0.5,
-                onComplete: function () {
-                    svgBorder.style.opacity = 0;
-                }
-            }
-        )
-        .to(
             svgBoxBorder,
             {
                 duration: 0.8,
                 width: svgBoxBorderSize,
                 height: svgBoxBorderSize,
-                borderWidth: 2
             }
         )
         .to(
@@ -87,8 +84,8 @@ function preloaderPlay() {
             svgBoxContainer,
             {
                 duration: 1,
-                width: window.innerWidth + 10,
-                height: window.innerHeight + 10
+                width: ((window.innerWidth + 10) % 2) ? window.innerWidth + 11 : window.innerWidth + 10,
+                height: ((window.innerHeight + 10) % 2) ? window.innerHeight + 11 : window.innerHeight + 10
             },
             '<'
         )
@@ -103,8 +100,8 @@ function preloaderPlay() {
             svgBoxBorder,
             {
                 duration: 1,
-                width: window.innerWidth,
-                height: window.innerWidth,
+                width: window.innerWidth > window.innerHeight ? window.innerWidth : window.innerHeight,
+                height: window.innerWidth > window.innerHeight ? window.innerWidth : window.innerHeight,
                 onComplete: function () {
                     svgBoxBorder.style.borderColor = 'rgb(0 0 0 / 0%)';
                 }
@@ -141,6 +138,7 @@ function preloaderPlay() {
                 duration: 0.5,
                 onComplete: function () {
                     preloader.style.display = 'none';
+                    Cookies.set('jclPreloaderLoaded', 1, {});
                 }
             },
         );

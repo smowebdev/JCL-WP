@@ -10,12 +10,12 @@
                 >
                     <div id="prlLogoContainer">
                         <div
-                            class="relative h-[50.441px] w-[50.422px]"
+                            class="relative h-[51px] w-[51px]"
                             data-name="eng"
                         >
                             <div
                                 id="svgBoxBorder"
-                                class="w-full h-full absolute top-1/2 left-1/2 -translate-1/2 border border-grey-light"
+                                class="w-[51px] h-[51px] absolute top-1/2 left-1/2 -translate-1/2 border-[1px] border-grey-light"
                             >
                                 <div
                                     id="svgBoxTexts"
@@ -23,13 +23,13 @@
                                 >
                                     <div
                                         id="svgBoxFirstText"
-                                        class="absolute top-[-15px] left-[calc(100%+10px)] opacity-0 text-grey-text whitespace-nowrap"
+                                        class="absolute top-[-25px] left-1/2 -translate-x-1/2 lg:top-[-15px] lg:left-[calc(100%+10px)] lg:translate-x-0 opacity-0 text-grey-text whitespace-nowrap"
                                     >
                                         {{ __('From Macau', 'sage') }}
                                     </div>
                                     <div
                                         id="svgBoxSecondText"
-                                        class="absolute top-[-15px] left-[calc(100%+10px)] opacity-0 text-grey-text whitespace-nowrap"
+                                        class="absolute top-[-25px] right-0 lg:top-[-15px] lg:right-auto lg:left-[calc(100%+10px)] lg:translate-x-0 opacity-0 text-grey-text whitespace-nowrap"
                                     >
                                         {{ __('To Beyond', 'sage') }}
                                     </div>
@@ -40,19 +40,20 @@
                                 >
                                     <div
                                         id="svgBoxVerticalLine"
-                                        class="absolute top-1/2 left-1/2 -translate-1/2 bg-grey-light z-20 w-0.5 h-full"
+                                        class="absolute top-1/2 left-1/2 -translate-1/2 z-20 w-px border-l border-grey-light h-full"
                                     >
                                     </div>
                                     <div
                                         id="svgBoxHorizontalLine"
-                                        class="absolute top-1/2 left-1/2 -translate-1/2 bg-grey-light z-20 h-0.5 w-full"
+                                        class="absolute top-1/2 left-1/2 -translate-1/2 bg-grey-light z-20 h-px w-full"
                                     >
                                     </div>
                                     <div class="svgBoxRectange"></div>
                                 </div>
                             </div>
-                            <div class="h-[50.441px] relative shrink-0 w-[50.422px]">
-                                <div class="absolute inset-[-1.06%_-1.17%_-1.17%_-1.17%]"><svg
+                            <div class="h-[50px] relative shrink-0 w-[50px]">
+                                <div class="absolute top-1/2 left-[51%] -translate-1/2 w-[50px]">
+                                    <svg
                                         class="block size-full"
                                         fill="none"
                                         preserveAspectRatio="none"
@@ -65,16 +66,17 @@
                                                 id="svgRectange"
                                             >
                                             </path>
-                                            <path
+                                            {{-- <path
                                                 d="M51.0117 0.59H0.59V50.9765H51.0117V0.59Z"
                                                 id="svgBorder"
                                                 stroke="var(--stroke-0, #58595B)"
                                                 stroke-width="1.18"
                                                 opacity="1"
                                                 style="opacity: 1;"
-                                            ></path>
+                                            ></path> --}}
                                         </g>
-                                    </svg></div>
+                                    </svg>
+                                </div>
                             </div>
                         </div>
                     </div>
