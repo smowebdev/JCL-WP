@@ -59,7 +59,6 @@ document.addEventListener('alpine:init', () => {
                 this.loading = false;
 
             } catch (error) {
-                console.error("Fetch failed:", error.message);
             }
         }
     }));

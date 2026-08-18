@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const glightboxBody = document.getElementById('glightbox-body');
         if (!glightboxBody) return;
         const lightboxImage = document.querySelector('.gslide-image img');
-        console.log(!jclClosest(e.target, '.gbtn'), !jclHasClass(e.target, 'gnext'), !jclHasClass(e.target, 'gprev'), !jclClosest(e.target, '.glightbox'));
         if (
             !jclClosest(e.target, '.gbtn') &&
             !jclHasClass(e.target, 'gnext') &&

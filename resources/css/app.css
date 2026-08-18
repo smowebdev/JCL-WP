@@ -38,7 +38,6 @@
     --spacing-m: 20px;
     --spacing-s: 16px;
     --spacing-screen-without-header: var(--spacing-without-header);
-    --spacing-default: calc(var(--spacing) * 8);
 
     /* Typography */
     --text-h1: 50px;
