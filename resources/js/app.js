@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import L from 'leaflet';
 import { MaptilerLayer } from '@maptiler/leaflet-maptilersdk';
 import Alpine from 'alpinejs';
-import collapse from '@alpinejs/collapse'
+import collapse from '@alpinejs/collapse';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 window.Alpine = Alpine;
@@ -147,6 +147,8 @@ document.addEventListener('DOMContentLoaded', function () {
   ) {
     const STOP_OFFSET = 10;
 
+    const SCROLL_DURATION = 1.5;
+
     const heroItemElements = Array.from(heroItems);
 
     const timelinePrev = document.querySelector('.timeline__btn--prev');
@@ -267,9 +269,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const targetHero = heroItemElements[index];
 
-      homeHeroInner.scrollTo({
-        top: targetHero.offsetTop,
-        behavior: 'smooth',
+      gsap.killTweensOf(homeHeroInner);
+
+      gsap.to(homeHeroInner, {
+        scrollTop: targetHero.offsetTop,
+        duration: 1.2,
+        ease: 'power2.inOut',
+
+        onUpdate: function () {
+          requestTimelineUpdate();
+        },
+
+        onComplete: function () {
+          calculateTimeline();
+          updateTimelineNavigation();
+        },
       });
 
       if (timelinePrev && timelineNext) {
@@ -360,6 +374,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         return;
       }
+
       if (mouseY < rect.height / 2) {
         scrollToHero(currentIndex - 1);
       } else {

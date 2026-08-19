@@ -22,7 +22,7 @@
                             </div>
                         @endif
                         @if ($year_label)
-                            <div class="text-h1 mt-2.5">
+                            <div class="text-h1 mt-2.5 font-medium">
                                 {!! $year_label !!}
                             </div>
                         @endif

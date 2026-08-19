@@ -42,7 +42,7 @@
                                         <div class="grid grid-cols-1 gap-2.5 lg:grid-cols-[1fr_200px] lg:gap-7">
 
                                             @if ($title)
-                                                <p class="text-title-l leading-6 lg:leading-[27px]">
+                                                <p class="text-title-l leading-6 lg:leading-[27px] font-medium">
                                                     {!! $title !!}
                                                 </p>
                                             @endif

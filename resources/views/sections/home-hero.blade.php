@@ -26,11 +26,11 @@
             <div class="relative hero-list z-20">
 
                 <div
-                    class="timeline absolute top-0 left-0 md:left-[31px] w-1/2 md:w-[170px] h-full pointer-events-none z-30">
+                    class="timeline absolute top-0 left-0 md:left-[31px] w-1/2 md:w-[170px] h-full pointer-events-none ">
 
-                    <div class="timeline__line absolute top-0 right-0 w-px h-full bg-grey"></div>
+                    <div class="timeline__line absolute top-0 right-0 w-px h-full bg-grey z-10"></div>
 
-                    <div class="timeline__sticky absolute top-0 left-0 w-full">
+                    <div class="timeline__sticky absolute top-0 left-0 w-full z-[99]">
                         <div
                             class="timeline__year absolute top-6 left-3.5 md:left-0 font-abel text-[160px] leading-[0.75] tracking-[-0.03em] will-change-transform">
                             {{ $hero['timeline_prefix'] }}
@@ -64,10 +64,10 @@
 
                         <div class="absolute inset-0 bg-black/50 z-1"></div>
 
-                        <div class="absolute left-0 w-full h-px bg-grey top-19.5 z-1"></div>
+                        <div class="absolute left-0 w-full h-px bg-grey top-20.75 z-1"></div>
 
                         <div
-                            class="hero-square absolute w-4.5 h-4.5 border border-grey z-1 top-17.5 left-1/2 -translate-x-1/2 md:translate-none md:left-48">
+                            class="hero-square absolute w-4.5 h-4.5 border border-grey z-1 top-18.5 left-1/2 -translate-x-1/2 md:translate-none md:left-48">
                         </div>
 
 
@@ -94,7 +94,7 @@
                             </div>
 
                             <div
-                                class="hero-main pb-12.5 md:pr-12.5 flex flex-col lg:flex-row justify-between gap-7.5 items-start lg:items-end">
+                                class="hero-main relative z-20 pb-12.5 md:pr-12.5 flex flex-col lg:flex-row justify-between gap-7.5 items-start lg:items-end">
 
                                 @if ($heading)
                                     @if ($index === 0)
